@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoreLocatorViewController">
+            <connections>
+                <outlet property="addressLabel" destination="100" id="101"/>
+                <outlet property="addressView" destination="98" id="111"/>
+                <outlet property="bottomBar" destination="30" id="46"/>
+                <outlet property="detailView" destination="63" id="74"/>
+                <outlet property="directionsButton" destination="103" id="110"/>
+                <outlet property="distanceLabel" destination="70" id="79"/>
+                <outlet property="mapButton" destination="105" id="109"/>
+                <outlet property="navigationView" destination="55" id="59"/>
+                <outlet property="serviceHours" destination="72" id="76"/>
+                <outlet property="storeAddressLabel" destination="66" id="78"/>
+                <outlet property="storeImageView" destination="64" id="77"/>
+                <outlet property="storeMapView" destination="8" id="9"/>
+                <outlet property="storeNameLabel" destination="65" id="80"/>
+                <outlet property="view" destination="6" id="7"/>
+                <outletCollection property="navigationButtons" destination="47" id="49"/>
+                <outletCollection property="navigationButtons" destination="48" id="50"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view hidden="YES" alpha="0.0" contentMode="scaleToFill" id="98">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tu ubicación:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="99">
+                    <rect key="frame" x="8" y="0.0" width="304" height="16"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.42834221830000002" blue="0.2640784155" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                    <color key="textColor" red="0.27450981740000002" green="0.65098041299999998" blue="0.87843143940000001" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="100">
+                    <rect key="frame" x="8" y="16" width="304" height="25"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="0.42834221830000002" blue="0.2640784155" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+            <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+        </view>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="6">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="10"/>
+                    </connections>
+                </mapView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="30" customClass="CustomToolbar">
+                    <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                    <items>
+                        <barButtonItem style="plain" id="33">
+                            <button key="customView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="32">
+                                <rect key="frame" x="16" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" image="mylocation">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="storeLocatorButtonPressed:" destination="-1" eventType="touchUpInside" id="38"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="86">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="85">
+                                <rect key="frame" x="59" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" image="btnBrujula_barraInferior.png">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btnBrujula_barraInferior_press.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="augmentedRealityButtonPressed:" destination="-1" eventType="touchUpInside" id="88"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="62"/>
+                        <barButtonItem style="plain" id="104">
+                            <button key="customView" hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="103">
+                                <rect key="frame" x="122" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnIndicaciones_barraInferior.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btnIndicaciones_barraInferior_press.png"/>
+                                <connections>
+                                    <action selector="storesButtonPressed:" destination="-1" eventType="touchUpInside" id="107"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="106">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="105">
+                                <rect key="frame" x="165" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnMapa_barraSuperior.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btnMapa_barraSuperior_press.png"/>
+                                <connections>
+                                    <action selector="mapButtonPressed:" destination="-1" eventType="touchUpInside" id="108"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="61"/>
+                        <barButtonItem style="plain" id="102">
+                            <button key="customView" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="53">
+                                <rect key="frame" x="223" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="btnSatelite_mapa.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="storeLocatorButtonPressed:" destination="-1" eventType="touchUpInside" id="54"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="44">
+                            <button key="customView" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="43">
+                                <rect key="frame" x="266" y="6" width="38" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" image="btnConfig_barraInferior.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="btnIndicaciones_barraInferior_press.png"/>
+                                <state key="highlighted" image="btnConfig_barraInferior_press.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="storesButtonPressed:" destination="-1" eventType="touchUpInside" id="45"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                    </items>
+                    <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="barTintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                </toolbar>
+                <view alpha="0.0" contentMode="scaleToFill" id="55">
+                    <rect key="frame" x="118" y="436" width="85" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="barraDirecciones_inferior.png" id="58">
+                            <rect key="frame" x="0.0" y="0.0" width="85" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="47">
+                            <rect key="frame" x="3" y="5" width="35" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <state key="normal" title="&lt;&lt;">
+                                <color key="titleColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="btnAtras_barraDirecciones_press.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="navgationbButtonpressed:" destination="-1" eventType="touchUpInside" id="51"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="48">
+                            <rect key="frame" x="46" y="5" width="35" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <state key="normal" title=">>">
+                                <color key="titleColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="btnAdelante_barraDirecciones_press.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="navgationbButtonpressed:" destination="-1" eventType="touchUpInside" id="52"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.42834221830000002" blue="0.2640784155" alpha="0.0" colorSpace="calibratedRGB"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" id="63">
+                    <rect key="frame" x="10" y="10" width="300" height="309"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fondo_detalleTienda.png" id="73">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="309"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="64">
+                            <rect key="frame" x="15" y="15" width="45" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="65">
+                            <rect key="frame" x="85" y="15" width="175" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" minimumFontSize="10" id="66">
+                            <rect key="frame" x="15" y="78" width="250" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="0.42834221830000002" blue="0.2640784155" alpha="0.0" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cómo llegar:" lineBreakMode="tailTruncation" minimumFontSize="10" id="67">
+                            <rect key="frame" x="16" y="228" width="84" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="68">
+                            <rect key="frame" x="12" y="253" width="40" height="36"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="btnIndicacionesCarro_Detalle.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="btnIndicacionesCarro_Detalle_press.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="detailButtonPressed:" destination="-1" eventType="touchUpInside" id="81"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="69">
+                            <rect key="frame" x="56" y="253" width="40" height="36"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="btnIndicacionesCaminar_Detalle.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="btnIndicacionesCaminar_Detalle_press.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="detailButtonPressed:" destination="-1" eventType="touchUpInside" id="82"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="70">
+                            <rect key="frame" x="16" y="199" width="180" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Horario de atención:" lineBreakMode="tailTruncation" minimumFontSize="10" id="71">
+                            <rect key="frame" x="15" y="148" width="250" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="72">
+                            <rect key="frame" x="15" y="170" width="180" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="75">
+                            <rect key="frame" x="262" y="5" width="33" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" backgroundImage="btnCerrar_detalle.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" backgroundImage="btnCerrar_detalle_press.png"/>
+                            <connections>
+                                <action selector="detailButtonPressed:" destination="-1" eventType="touchUpInside" id="83"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <barButtonItem style="plain" systemItem="flexibleSpace" id="60"/>
+    </objects>
+    <resources>
+        <image name="barraDirecciones_inferior.png" width="85" height="44"/>
+        <image name="btnAdelante_barraDirecciones_press.png" width="33" height="30"/>
+        <image name="btnAtras_barraDirecciones_press.png" width="33" height="30"/>
+        <image name="btnBrujula_barraInferior.png" width="33" height="30"/>
+        <image name="btnBrujula_barraInferior_press.png" width="33" height="30"/>
+        <image name="btnCerrar_detalle.png" width="33" height="30"/>
+        <image name="btnCerrar_detalle_press.png" width="33" height="30"/>
+        <image name="btnConfig_barraInferior.png" width="33" height="30"/>
+        <image name="btnConfig_barraInferior_press.png" width="33" height="30"/>
+        <image name="btnIndicacionesCaminar_Detalle.png" width="33" height="30"/>
+        <image name="btnIndicacionesCaminar_Detalle_press.png" width="33" height="30"/>
+        <image name="btnIndicacionesCarro_Detalle.png" width="33" height="30"/>
+        <image name="btnIndicacionesCarro_Detalle_press.png" width="33" height="30"/>
+        <image name="btnIndicaciones_barraInferior.png" width="33" height="30"/>
+        <image name="btnIndicaciones_barraInferior_press.png" width="33" height="30"/>
+        <image name="btnMapa_barraSuperior.png" width="33" height="30"/>
+        <image name="btnMapa_barraSuperior_press.png" width="33" height="30"/>
+        <image name="btnSatelite_mapa.png" width="33" height="30"/>
+        <image name="fondo_detalleTienda.png" width="300" height="304"/>
+        <image name="mylocation" width="33" height="30"/>
+    </resources>
+</document>
