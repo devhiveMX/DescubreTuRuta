@@ -63,12 +63,12 @@ inline static NSString* keyForURL(NSURL* url) {
         case WSConnectionTypeGoogleInverseGeocoding:
             connection = [WSConnection connectionForInverseGeocodingWithOrigin:origin delegate:[self defaultManager]];
             break;
-        case WSConnectionTypeGoogleTraceroute:
-            connection = [WSConnection connectionForTraceRouteFromOrigin:origin toDestination:destination delegate:[self defaultManager]];
-            break;
-        case WSConnectionTypeGoogleTracerouteOnFoot:
-            connection = [WSConnection connectionForTraceRouteOnFootFromOrigin:origin toDestination:destination delegate:[self defaultManager]];
-            break;
+//        case WSConnectionTypeGoogleTraceroute:
+//            connection = [WSConnection connectionForTraceRouteFromOrigin:origin toDestination:destination delegate:[self defaultManager]];
+//            break;
+//        case WSConnectionTypeGoogleTracerouteOnFoot:
+//            connection = [WSConnection connectionForTraceRouteOnFootFromOrigin:origin toDestination:destination delegate:[self defaultManager]];
+//            break;
         default:
             connection = [WSConnection connectionWithType:connectionType stringParam:param jsonParam:jsonParam delegate:[WebServicesManager defaultManager]];
             break;

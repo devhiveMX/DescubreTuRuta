@@ -15,48 +15,14 @@
 #if USE_SUPERAMA_SERVICES 
 
 #if PRODUCTION_URL
-#define URL_BASE @"https://www.aclaraciones.com.mx/superamamobile/15"
+#define URL_BASE @"https://training.devhive.mx/rutamxapi/"
 #else
-#define URL_BASE @"http://192.168.43.193:8081/superamamobile/15"
+#define URL_BASE @"https://training.devhive.mx/rutamxapi/"
 #endif
 
 #define URL_STORE_LOCATOR_BASE @"http://192.168.43.193:8081/StoreLocatorApp/storeLocator/byBusiness"
 
-#define URL_ADD_ITEM_TO_LIST                @"/list/addItemToList"
-#define URL_ADD_ITEM_TO_SHOPPING_CART       @"/list/addItemToShoppingCartByUpcWithComments"
-#define URL_ADD_ITEMS_TO_CART_FROM_LIST     @"/list/addItemsToListFromCart"
-
-#define URL_GET_CATEGORIES_LIST             @"/list/getCategories"
-#define URL_GET_ITEM_BY_UPC                 @"/list/getItemByUpc"
-#define URL_GET_ITEMS_BY_SEARCH             @"/list/getItemsBySearching"
-#define URL_GET_ITEMS_BY_TICKET             @"/list/getItemByTicket"
-#define URL_GET_LIST_BY_ID                  @"/list/getListById"
-#define URL_GET_LISTS_BY_USER               @"/list/getListsByUser"
-#define URL_GET_PURCHASE_HISTORY_BY_USER    @"/list/getPurchaseOrderByUser"
-#define URL_GET_SHOPPING_CART               @"/list/getShoppingCartByUser"
-#define URL_GET_TIME_BANDS                  @"/list/getTimeBands"
-#define URL_GET_DELIVERY_TYPES              @"/list/getDeliveryTypes"
-#define URL_GET_ADDRESS_BY_ID               @"/list/getAddressById"
-#define URL_GET_ADDRESS_HEADERS             @"/list/getAddressByUser"
-
-#define URL_CREATE_TICKET_LIST              @"/list/createTicketList"
-#define URL_SAVE_TICKET_LIST                @"/list/saveList"
-
-#define URL_DELETE_ITEM_BY_UPC              @"/list/deleteItem"
-#define URL_DELETE_ITEM_FROM_CART           @"/list/deleteItemToShoppingCartByUpc"
-#define URL_DELETE_TICKET_LIST              @"/list/deleteList"
-
-#define URL_CONVERT_CART_TO_LIST            @"/list/convertShoppingCartToList"
-#define URL_CONVERT_LIST_TO_CART            @"/list/convertListToShoppingCart"
-
-#define URL_UPDATE_ITEM_BY_ITEM             @"/list/updateItem"
-#define URL_UPDATE_SHOPPING_CART_ITEM       @"/list/updateShoppingCartItem"
-#define URL_UPDATE_TICKET_LIST              @"/list/updateList"
-#define URL_UPDATE_USER_ADDRESS             @"/list/updateUserAddress"
 #define URL_UPDATE_USER_PROFILE             @"/list/updateUserProfile"
-
-#define URL_SEND_LIST_BY_EMAIL              @"/list/sendListByEmail"
-#define URL_SEND_ORDER_BY_EMAIL             @"/list/sendOrderByEmail"
 
 
 #define URL_LOGIN                           @"/login"
@@ -128,11 +94,20 @@
 #endif
 
 
-#define GOOGLE_API_INV_GEOCODING_URL @"http://maps.google.com/maps/api/geocode/json?latlng=%f,%f&sensor=false"
-#define GOOGLE_API_TRACEROUTE_URL @"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=true&language=es"
+#if USE_GOOGLE_API
+#define REVERSE_GEOCODING_URL @"http://maps.google.com/maps/api/geocode/json?latlng=%f,%f&sensor=false"
+#define TRACEROUTE_URL @"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=true&language=es"
 
 #define GOOGLE_API_TRACEROUTE_ONFOOT_URL @"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=walking&sensor=true&language=es"
+#else
+#define REVERSE_GEOCODING_URL @"http://maps.google.com/maps/api/geocode/json?latlng=%f,%f&sensor=false"
+#define TRACEROUTE_URL @"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=true&language=es"
 
+#define MAPPIR_ROUTE_URL @"route"
+#define SEARCH_ROUTE_URL @"search"
+
+#define GOOGLE_API_TRACEROUTE_ONFOOT_URL @"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=walking&sensor=true&language=es"
+#endif
 #define CLLocationCoordinate2DZero CLLocationCoordinate2DMake(0,0)
 
 #define ALERTVIEW_TITLE @"Superama Móvil"

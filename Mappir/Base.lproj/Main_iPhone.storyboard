@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OyF-5P-O8Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OyF-5P-O8Z">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -12,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="l8W-g3-yS9" kind="relationship" relationship="rootViewController" id="UC3-0S-dQN"/>
+                        <segue destination="CrF-bq-Gzs" kind="relationship" relationship="rootViewController" id="eSm-65-6DR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Go1-ol-5lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -20,16 +21,390 @@
             <point key="canvasLocation" x="311" y="-358"/>
         </scene>
         <!--Store Locator View Controller-->
-        <scene sceneID="bc7-jl-ayc">
+        <scene sceneID="tDH-f1-mXe">
             <objects>
-                <viewController id="l8W-g3-yS9" customClass="StoreLocatorViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hra-Yw-ubN"/>
+                <viewController id="CrF-bq-Gzs" customClass="StoreLocatorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DXp-nM-JFf"/>
+                        <viewControllerLayoutGuide type="bottom" id="lcp-CH-TUZ"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DI5-AU-EBT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dk5-At-6oJ">
+                                <rect key="frame" x="10" y="10" width="300" height="309"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YjL-ZQ-1fP">
+                                        <rect key="frame" x="15" y="15" width="45" height="45"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zmN-Af-02i">
+                                        <rect key="frame" x="85" y="15" width="175" height="45"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BYH-pY-5Ym">
+                                        <rect key="frame" x="15" y="78" width="250" height="62"/>
+                                        <color key="backgroundColor" red="1" green="0.42834221830000002" blue="0.2640784155" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Cómo llegar:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="w6y-tN-hIc">
+                                        <rect key="frame" x="16" y="228" width="84" height="21"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSO-jE-VfW">
+                                        <rect key="frame" x="12" y="253" width="40" height="36"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                        <state key="normal" image="btnIndicacionesCarro_Detalle.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="btnIndicacionesCarro_Detalle_press.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mz-h6-1nt">
+                                        <rect key="frame" x="56" y="253" width="40" height="36"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                        <state key="normal" image="btnIndicacionesCaminar_Detalle.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="btnIndicacionesCaminar_Detalle_press.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0wC-2X-q2I">
+                                        <rect key="frame" x="16" y="199" width="180" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Horario de atención:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eQc-MN-Wep">
+                                        <rect key="frame" x="15" y="148" width="250" height="21"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pol-gu-H6a">
+                                        <rect key="frame" x="15" y="170" width="180" height="21"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEl-S0-cWe">
+                                        <rect key="frame" x="262" y="5" width="33" height="30"/>
+                                        <state key="normal" backgroundImage="btnCerrar_detalle.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="btnCerrar_detalle_press.png"/>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="fondo_detalleTienda.png" translatesAutoresizingMaskIntoConstraints="NO" id="rxk-Hi-pc7">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="309"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l5F-Ad-Z8g">
+                                <rect key="frame" x="0.0" y="44" width="320" height="390"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CrF-bq-Gzs" id="IFb-kQ-hhw"/>
+                                </connections>
+                            </mapView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckL-NV-Ns5">
+                                <rect key="frame" x="118" y="436" width="85" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="barraDirecciones_inferior.png" translatesAutoresizingMaskIntoConstraints="NO" id="G9S-Fv-8vi">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="44"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-IW-xGL">
+                                        <rect key="frame" x="3" y="5" width="35" height="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <state key="normal" title="&lt;&lt;">
+                                            <color key="titleColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="btnAtras_barraDirecciones_press.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="navgationbButtonpressed:" destination="CrF-bq-Gzs" eventType="touchUpInside" id="9ke-tt-bb8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZK-fQ-eJK">
+                                        <rect key="frame" x="46" y="5" width="35" height="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <state key="normal" title=">>">
+                                            <color key="titleColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="btnAdelante_barraDirecciones_press.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="navgationbButtonpressed:" destination="CrF-bq-Gzs" eventType="touchUpInside" id="EdT-hc-nhD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.42834221830000002" blue="0.2640784155" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="602-K5-60S"/>
+                                    <constraint firstAttribute="height" constant="44" id="n7T-49-98y"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s26-Nr-IRz">
+                                <rect key="frame" x="264" y="436" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="destinationsButtonPressed:" destination="CrF-bq-Gzs" eventType="touchUpInside" id="TZm-cz-YvY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l5F-Ad-Z8g" firstAttribute="top" secondItem="DXp-nM-JFf" secondAttribute="bottom" id="1eV-mE-VWY"/>
+                            <constraint firstItem="lcp-CH-TUZ" firstAttribute="top" secondItem="l5F-Ad-Z8g" secondAttribute="bottom" id="e5W-Le-yWd"/>
+                            <constraint firstAttribute="centerX" secondItem="ckL-NV-Ns5" secondAttribute="centerX" id="kee-Pw-JCQ"/>
+                            <constraint firstItem="lcp-CH-TUZ" firstAttribute="top" secondItem="ckL-NV-Ns5" secondAttribute="bottom" id="mlT-x9-1xO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LqO-Vt-red"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="bottomBar" destination="mi6-c4-Ift" id="VXy-yj-Jk7"/>
+                        <outlet property="directionsButton" destination="vO2-fJ-nUp" id="1Ir-eI-oaK"/>
+                        <outlet property="mapButton" destination="wKg-V8-XAK" id="mJd-6X-T3O"/>
+                        <outlet property="navigationView" destination="ckL-NV-Ns5" id="4l3-CD-DaE"/>
+                        <outlet property="storeMapView" destination="l5F-Ad-Z8g" id="k2W-gb-tMd"/>
+                        <outletCollection property="navigationButtons" destination="uQe-IW-xGL" id="Oko-K6-qmO"/>
+                        <outletCollection property="navigationButtons" destination="LZK-fQ-eJK" id="yqZ-Ox-kuu"/>
+                        <segue destination="Dju-qk-Ggo" kind="push" identifier="GoToDestinations" id="iLl-IW-qoG"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9IL-vN-6Pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1f-Ob-6fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="mi6-c4-Ift">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <barButtonItem style="plain" id="u5c-3W-DAr">
+                            <button key="customView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Kh-aN-IJF">
+                                <rect key="frame" x="16" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" image="mylocation">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="storeLocatorButtonPressed:" destination="CrF-bq-Gzs" eventType="touchUpInside" id="PbE-y3-gh8"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="1z4-ny-N5y">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mPb-fx-KKw">
+                                <rect key="frame" x="59" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" image="btnBrujula_barraInferior.png">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btnBrujula_barraInferior_press.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="run-5Q-jbG"/>
+                        <barButtonItem style="plain" id="Nae-9b-UyQ">
+                            <button key="customView" hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vO2-fJ-nUp">
+                                <rect key="frame" x="122" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnIndicaciones_barraInferior.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btnIndicaciones_barraInferior_press.png"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="TrU-AG-quS">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wKg-V8-XAK">
+                                <rect key="frame" x="165" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btnMapa_barraSuperior.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btnMapa_barraSuperior_press.png"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="1mB-bi-8w2"/>
+                        <barButtonItem style="plain" id="e5D-t6-Afq">
+                            <button key="customView" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="srV-h4-hhL">
+                                <rect key="frame" x="223" y="7" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="btnSatelite_mapa.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="storeLocatorButtonPressed:" destination="CrF-bq-Gzs" eventType="touchUpInside" id="zbB-nW-bjj"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="Ote-Tf-f9b">
+                            <button key="customView" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8UR-jJ-sMm">
+                                <rect key="frame" x="266" y="6" width="38" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" image="btnConfig_barraInferior.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="btnIndicaciones_barraInferior_press.png"/>
+                                <state key="highlighted" image="btnConfig_barraInferior_press.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="storesButtonPressed:" destination="CrF-bq-Gzs" eventType="touchUpInside" id="kdX-s7-k2H"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </toolbar>
             </objects>
-            <point key="canvasLocation" x="860" y="-353"/>
+            <point key="canvasLocation" x="987" y="-235"/>
+        </scene>
+        <!--Route Destinations Viewcontroller-->
+        <scene sceneID="5CI-Vm-iVh">
+            <objects>
+                <viewController id="Dju-qk-Ggo" customClass="MPRouteDestinationsViewcontroller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vL6-fn-5EB"/>
+                        <viewControllerLayoutGuide type="bottom" id="QnG-gX-UX1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0c0-i6-Fsr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wTk-jJ-ZU6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DestinationCell" id="SYt-S9-73q" customClass="MPDestinationTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SYt-S9-73q" id="fTS-0W-EHc">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7S-wn-DTA">
+                                                    <rect key="frame" x="40" y="7" width="200" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqQ-bm-bNv">
+                                                    <rect key="frame" x="245" y="7" width="30" height="30"/>
+                                                    <color key="backgroundColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRR-Eb-OnB">
+                                                    <rect key="frame" x="282" y="7" width="30" height="30"/>
+                                                    <color key="backgroundColor" red="0.52156865600000002" green="0.55686277149999996" blue="0.090196080509999998" alpha="1" colorSpace="deviceRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <state key="normal" title="X">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lP-tc-nDc">
+                                                    <rect key="frame" x="8" y="9" width="25" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.96470588235294119" green="0.97254901960784312" blue="0.81176470588235294" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <outlet property="alphabeticLabel" destination="6lP-tc-nDc" id="4bH-X1-kYr"/>
+                                            <outlet property="deleteButton" destination="NRR-Eb-OnB" id="nzI-w2-IWe"/>
+                                            <outlet property="destinationInfoTextField" destination="b7S-wn-DTA" id="8ca-v6-fKU"/>
+                                            <outlet property="swapDestinationButton" destination="iqQ-bm-bNv" id="My8-aZ-0Ju"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SearchCell" id="Vmr-47-K9R">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vmr-47-K9R" id="Fkf-k7-Cqk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riG-55-szg">
+                                                    <rect key="frame" x="10" y="5" width="300" height="34"/>
+                                                    <state key="normal" title="Buscar Ruta">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.81176470590000005" alpha="1" colorSpace="deviceRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jYv-4x-ODs"/>
+                    <connections>
+                        <outlet property="tableView" destination="wTk-jJ-ZU6" id="aQ4-R6-v6l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aws-x5-t7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1445" y="-32"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="barraDirecciones_inferior.png" width="85" height="44"/>
+        <image name="btnAdelante_barraDirecciones_press.png" width="33" height="30"/>
+        <image name="btnAtras_barraDirecciones_press.png" width="33" height="30"/>
+        <image name="btnBrujula_barraInferior.png" width="33" height="30"/>
+        <image name="btnBrujula_barraInferior_press.png" width="33" height="30"/>
+        <image name="btnCerrar_detalle.png" width="33" height="30"/>
+        <image name="btnCerrar_detalle_press.png" width="33" height="30"/>
+        <image name="btnConfig_barraInferior.png" width="33" height="30"/>
+        <image name="btnConfig_barraInferior_press.png" width="33" height="30"/>
+        <image name="btnIndicacionesCaminar_Detalle.png" width="33" height="30"/>
+        <image name="btnIndicacionesCaminar_Detalle_press.png" width="33" height="30"/>
+        <image name="btnIndicacionesCarro_Detalle.png" width="33" height="30"/>
+        <image name="btnIndicacionesCarro_Detalle_press.png" width="33" height="30"/>
+        <image name="btnIndicaciones_barraInferior.png" width="33" height="30"/>
+        <image name="btnIndicaciones_barraInferior_press.png" width="33" height="30"/>
+        <image name="btnMapa_barraSuperior.png" width="33" height="30"/>
+        <image name="btnMapa_barraSuperior_press.png" width="33" height="30"/>
+        <image name="btnSatelite_mapa.png" width="33" height="30"/>
+        <image name="fondo_detalleTienda.png" width="300" height="304"/>
+        <image name="mylocation" width="33" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

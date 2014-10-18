@@ -189,7 +189,7 @@ CFTimeInterval CACurrentMediaTime();
         [self.request setHTTPMethod:@"POST"];
         [self.request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         [self.request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [self.request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
+        [self.request setValue:[NSString stringWithFormat:@"%lud", (unsigned long)[requestData length]] forHTTPHeaderField:@"Content-Length"];
         [self.request setHTTPBody: requestData];
         
     }
@@ -241,105 +241,6 @@ CFTimeInterval CACurrentMediaTime();
     NSURL *_url = nil;
     NSString *strURL = nil	;
     switch(self.type) {
-        case WSConnectionTypeLogin:
-            strURL = URL_LOGIN;
-            break;
-        case WSConnectionTypeLogOut:
-            strURL = URL_LOGOUT;
-            break;
-        case WSConnectionTypeCreatelist:
-            strURL = URL_CREATE_TICKET_LIST;
-            break;
-        case WSConnectionTypeAddItemToList:
-            strURL = URL_ADD_ITEM_TO_LIST;
-            break;
-        case WSConnectionTypeAddItemToShoppingCart:
-            strURL = URL_ADD_ITEM_TO_SHOPPING_CART;
-            break;
-        case WSConnectionTypeGetListByID:
-            strURL = URL_GET_LIST_BY_ID;
-            break;
-        case WSConnectionTypeSaveList:
-            strURL = URL_SAVE_TICKET_LIST;
-            break;
-        case WSConnectionTypeConvertCartToList:
-            strURL = URL_CONVERT_CART_TO_LIST;
-            break;
-        case WSconnectionTypeConvertListToCart:
-            strURL = URL_CONVERT_LIST_TO_CART;
-            break;
-        case WSConnectionTypeDeleteTicketList:
-            strURL = URL_DELETE_TICKET_LIST;
-            break;
-        case WSConnectionTypeGetListByUser:
-            strURL = URL_GET_LISTS_BY_USER;
-            break;
-        case WSConnectionTypeGetPurchaseHistoryByUser:
-            strURL = URL_GET_PURCHASE_HISTORY_BY_USER;
-            break;
-        case WSConnectionTypeGetShoppingCart:
-            strURL = URL_GET_SHOPPING_CART;
-            break;
-        case WSConnectionTypeCreateUser:
-            strURL = URL_CREATE_USER;
-            break;
-        case WSConnectionTypeSendTicketByEmail:
-            strURL = URL_SEND_LIST_BY_EMAIL;
-            break;
-        case WSConnectionTypeSendOrderByEmail:
-            strURL = URL_SEND_ORDER_BY_EMAIL;
-            break;
-        case WSConnectionTypeDeleteItem:
-            strURL = URL_DELETE_ITEM_BY_UPC;
-            break;
-        case WSConnectionTypeDeleteItemFromShoppingCart:
-            strURL = URL_DELETE_ITEM_FROM_CART;
-            break;
-        case WSConnectionTypeUpdateItemByItem:
-            strURL = URL_UPDATE_ITEM_BY_ITEM;
-            break;
-        case WSConnectionTypeUpdateShoppingCartItem:
-            strURL = URL_UPDATE_SHOPPING_CART_ITEM;
-            break;
-        case WSConnectionTypeUpdateTicketList:
-            strURL = URL_UPDATE_TICKET_LIST;
-            break;
-        case WSConnectionTypeUpdateUserAddress:
-            strURL = URL_UPDATE_USER_ADDRESS; //@"/list/updateUserAddress";
-            break;
-        case WSConnectionTypeUpdateUserProfile:
-            strURL = URL_UPDATE_USER_PROFILE;
-            break;
-        case WSConnectionTypeGetAddressByID:
-            strURL = URL_GET_ADDRESS_BY_ID;
-            break;
-        case WSConnectionTypeGetCategoriesList:
-            strURL = URL_GET_CATEGORIES_LIST;
-            break;
-        case WSConnectionTypeGetItemByUPC:
-            strURL = URL_GET_ITEM_BY_UPC;
-            break;
-        case WSConnectionTypeGetItemsByTicket:
-            strURL = URL_GET_ITEMS_BY_TICKET;
-            break;
-        case WSConnectionTypeGetDeliveryHours:
-            strURL = URL_GET_TIME_BANDS;
-            break;
-        case WSConnectionTypeGetInfoByZipCode:
-            strURL = URL_GET_INFO_BY_ZIPCODE;
-            break;
-        case WSConnectionTypeGetAddressHeaders:
-            strURL = URL_GET_ADDRESS_BY_USER;
-            break;
-        case WSConnectionTypeSendRegistration:
-            strURL = URL_SEND_REGISTRATION;
-            break;
-        case WSConnectionTypeGetDeliveryTypes:
-        case WSConnectionTypeDeliveryTypeCatalog:
-            strURL = URL_GET_DELIVERY_TYPES;
-            break;
-        case WSConnectionTypeGetItemsBySearching:
-            strURL = URL_GET_ITEMS_BY_SEARCH;
             break;
         case WSConnectionTypePasswordRecovery:
             strURL = URL_PASSWORD_RECOVERY;
@@ -348,30 +249,32 @@ CFTimeInterval CACurrentMediaTime();
             strURL = URL_SAVE_TOKEN;
             break;
         case WSConnectionTypeGoogleInverseGeocoding:
-            strURL = [NSString stringWithFormat:GOOGLE_API_INV_GEOCODING_URL,self.originLocation.latitude, self.originLocation.longitude];
+            strURL = [NSString stringWithFormat:REVERSE_GEOCODING_URL,self.originLocation.latitude, self.originLocation.longitude];
             break;
         case WSConnectionTypeGoogleTraceroute:
+            strURL = MAPPIR_ROUTE_URL;
+            break;
         case WSConnectionTypeGoogleTracerouteOnFoot:
             if (self.type == WSConnectionTypeGoogleTracerouteOnFoot) {
-                strURL = [NSString stringWithFormat:GOOGLE_API_TRACEROUTE_ONFOOT_URL,self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude];
+                strURL = [NSString stringWithFormat:TRACEROUTE_URL,self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude];
             } else {
-                strURL = [NSString stringWithFormat:GOOGLE_API_TRACEROUTE_URL,self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude];
+                strURL = [NSString stringWithFormat:TRACEROUTE_URL,self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude];
             }
             break;
-        case WSConnectiontypeSLByBusiness:
-            strURL = URL_STORE_LOCATOR_BASE;
+        case WSConnectionTypeLocationSearch:
+            strURL = SEARCH_ROUTE_URL;
             break;
-        case WSConnectionTypePaymentTypeCatalog:
-            strURL = URL_PAY_TYPE_CATALOG;
-            break;
+//        case WSConnectionTypePaymentTypeCatalog:
+//            strURL = URL_PAY_TYPE_CATALOG;
+//            break;
         default:
             break;
     }
     NSString *strFinalURL = nil;
     if (self.type < WSConnectionTypeGoogleInverseGeocoding)
         strFinalURL = [NSString stringWithFormat:@"%@%@", URL_BASE, strURL];
-    else if (self.type < WSConnectionTypeGoogleTraceroute)
-        strFinalURL = strURL;
+//    else if (self.type < WSConnectionTypeGoogleTraceroute)
+//        strFinalURL = strURL;
     else
         strFinalURL = strURL;
     if (self.singleParam) {

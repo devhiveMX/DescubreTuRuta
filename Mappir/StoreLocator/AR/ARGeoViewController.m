@@ -71,7 +71,7 @@
 	UILabel *titleLabel = locationView.titleLabel;
     //	titleLabel.backgroundColor = [UIColor colorWithWhite:.3 alpha:.8];
     //	titleLabel.textColor = [UIColor whiteColor];
-	titleLabel.textAlignment = UITextAlignmentCenter;
+	titleLabel.textAlignment = NSTextAlignmentCenter;
 	titleLabel.text = coordinate.title;
     //	[titleLabel sizeToFit];
     //    titleLabel.tag = 1;

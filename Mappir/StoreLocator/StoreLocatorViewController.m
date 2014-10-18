@@ -153,7 +153,11 @@ typedef enum {
 
     isFilterHidden = YES;
     firstUserLocation = NO;
-    self.storeMapView.showsUserLocation = YES;
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    
     isInRouteMode = NO;
     self.enabledStores = [NSMutableArray array];
     [self.enabledStores addObject:[NSNumber numberWithInt:StoreTypeWalmart]];
@@ -177,21 +181,8 @@ typedef enum {
         currentMaxStores = DEFAULT_LOCATIONS;
     }
     
-    /*NSString *path = [[NSBundle mainBundle] pathForResource:@"Locations" ofType:@"plist"];
-     NSData *pListData = [NSData dataWithContentsOfFile:path];
-     NSPropertyListFormat format;
-     NSString *error;
-     storesLocationsDictsArray = [[NSPropertyListSerialization propertyListFromData:pListData 
-     mutabilityOption:NSPropertyListMutableContainersAndLeaves
-     format:&format 
-     errorDescription:&error] retain]; */
-    //[self buildStoreLocationsSet];
-    
     storeFilter = StoreTypeNoType;
     
-    //storesMask = StoreMaskAurrera | StoreMaskSamsClub;
-    
-    //[gpsParser parseXMLAtURL:@"http://admin.appslm-prod.com/JMJ/ShareHearts"];
     currentSegmentIndex = -1;
     
     [detailView setTransform:CGAffineTransformMakeScale(0.01, 0.01)];
@@ -328,87 +319,18 @@ typedef enum {
     [super viewWillAppear:animated];
     if (self.storesLocationsArray) return;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-	[self showLoadingView];
+//	[self showLoadingView];
     self.navigationItem.hidesBackButton = YES;
-    NSMutableArray* buttons = [[NSMutableArray alloc] initWithCapacity:3];
-    CustomToolbar *toolbar = [[CustomToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-//    [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin];
     UIButton *button = [self getButtonFromType:SuperiorBarButtonHomeSquare];
     [button addTarget:self action:@selector(popNavigationViewControllerAnimated) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem* br = [[UIBarButtonItem alloc] initWithCustomView:self.bottomBar];
+
     [self.bottomBar removeFromSuperview];
     self.navigationItem.titleView = self.bottomBar;
-//    [self.navigationItem setLeftBarButtonItem:br animated:YES];
-//    [buttons addObject:br];
-//    self.navigationItem.leftBarButtonItem = br;
-    
-//    br = [[UIBarButtonItem alloc] initWithCustomView:self.addressView];
-//    self.navigationItem.rightBarButtonItem = br;
-    
-//    button = [self getButtonFromType:SuperiorBarButtonHomeSquare];
-//    [button setHidden:YES];
-//    [button addTarget:self action:@selector(goHome) forControlEvents:UIControlEventTouchUpInside];
-//    br = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-//    //[buttons addObject:br];
-
-    
-//    br = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
-//    [buttons addObject:br];
-    
-//    button = [self getButtonFromType:SuperiorBarButtonSLDirections];
-//    [button addTarget:self action:@selector(storesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//    [button setTag:TableTypeDirections];
-//    [button setHidden:YES];
-//    self.directionsButton = button;
-//    
-//    br = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-//    [buttons addObject:br];
-    
-//    button = [self getButtonFromType:SuperiorBarButtonSLMap];
-//    [button addTarget:self action:@selector(mapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//    [button setHidden:YES];
-//    self.mapButton = button;
-//    br = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-//    [buttons addObject:br];
-    
-//    button = [self getButtonFromType:SuperiorBarButtonSLStoresType];
-//    [button addTarget:self action:@selector(storesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//    [button setTag:TableTypeStoresCatalog];
-//    br = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-//    [buttons addObject:br];
-    
-//    button = [self getButtonFromType:SuperiorBarButtonSLStoresNearMe];
-//    [button addTarget:self action:@selector(storesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//    [button setTag:TableTypeNearMe];
-//    br = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-//    [buttons addObject:br];
-    
-//    br = [[[UIBarButtonItem alloc] initWithCustomView:toolbar] autorelease];
-    
-//    [self.navigationItem setRightBarButtonItem:br animated:YES];
-//    [toolbar setItems:buttons animated:YES];
-    
-    //[br release];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
-	if (!self.storesLocationsArray) {
-		//[self showLoadingView];
-		self.gpsParser = [GPSLocationsParser parser];
-		self.gpsParser.delegate = self;
-		[self.gpsParser parseXMLFileAtURL:@"tiendas"];
-	}
-}
 
-#pragma mark - GPSLocationsParserDelegate 
-
-- (void)gpsLocationsParserDidFinishParse:(GPSLocationsParser*)parser {
-    [self dismissLoadingView];
-    self.storesLocationsArray = [NSArray arrayWithArray:parser.results];
-    self.gpsParser = nil;
-	[self.storeMapView setShowsUserLocation:YES];
-	
 }
 
 #pragma mark - MKMapViewDelegate methods
@@ -996,27 +918,25 @@ typedef enum {
             }
             [self.mapButton setHidden:NO];
             [self.directionsButton setHidden:NO];
-            [self updateLocationsInMapWithLocation:userLocation andSpan:self.storeMapView.region.span];
-            NSDictionary *routesArray =[storeDictionary objectForKey:@"routes"];
-            
+//            [self updateLocationsInMapWithLocation:userLocation andSpan:self.storeMapView.region.span];
+            NSArray *routesArray =[storeDictionary objectForKey:@"results"];
             
             if (routesArray) {
                 NSArray *routePoints = nil;
                 
-                
                 [self.storeMapView removeOverlay:self.routeLine];
                 self.routeLine = nil;
                 for(NSDictionary *route in routesArray) {
-                    NSDictionary *legsArray = [route objectForKey:@"legs"];
+                    NSDictionary *legsArray = [route objectForKey:@"grafo"];
                     
                     //[directionsArray addObject:[route objectForKey:@"html_instructions"]];
                     
-                    for(NSDictionary *leg in legsArray) {
-                        routePoints=[NSArray arrayWithArray:[leg objectForKey:@"steps"]];
+                    for(NSArray *leg in legsArray) {
+//                        routePoints=leg[12];
                         self.routeDistanceAndtime = [NSMutableDictionary dictionary];
-                        [routeDistanceAndtime setObject:[[leg objectForKey:@"distance"] objectForKey:@"text"] forKey:@"distance"];
-                        [routeDistanceAndtime setObject:[[leg objectForKey:@"duration"] objectForKey:@"text"] forKey:@"duration"];
-                        self.routeLine = [self loadRouteWithPoints:routePoints];
+//                        [routeDistanceAndtime setObject:[[leg objectForKey:@"distance"] objectForKey:@"text"] forKey:@"distance"];
+//                        [routeDistanceAndtime setObject:[[leg objectForKey:@"duration"] objectForKey:@"text"] forKey:@"duration"];
+                        self.routeLine = [self loadRouteWithPoints:leg];
                         currentSegmentIndex = -1;
                         if (self.routeLine != nil) {
                             [self.storeMapView addOverlay:self.routeLine];
@@ -1231,50 +1151,61 @@ typedef enum {
         self.directionsArray = [NSMutableArray array];
     }
     [self.directionsArray removeAllObjects];
-	for(idx = 0; idx < [routePoints count]; idx++)
+//	for(idx = 0; idx < [routePoints count]; idx++)
 	{
         NSDictionary *pointDic;
         
         NSMutableDictionary *directionDict=[NSMutableDictionary dictionary];
         
-        NSDictionary *distanceDict=[[routePoints objectAtIndex:idx] objectForKey:@"distance"];
-        NSDictionary *durationDict=[[routePoints objectAtIndex:idx] objectForKey:@"duration"];
+//        NSDictionary *distanceDict=[routePoints[7]  objectForKey:@"distance"];
+//        NSDictionary *durationDict=[[routePoints objectAtIndex:idx] objectForKey:@"duration"];
         
-        [directionDict setValue:[[routePoints objectAtIndex:idx] objectForKey:@"start_location"] forKey:@"start_location"];
-#if DIRECTIONS_FORMAT == 0
-        [directionDict setValue:[distanceDict objectForKey:@"text"] forKey:@"distance"];
-#else
-        [directionDict setValue:distanceDict forKey:@"distance"];
-#endif
+        NSArray *points = routePoints[11];
         
-        [directionDict setValue:[durationDict objectForKey:@"text"] forKey:@"duration"];
+//        [directionDict setValue:[[routePoints objectAtIndex:idx] objectForKey:@"start_location"] forKey:@"start_location"];
         
-        NSString *htmlinstructions = [[routePoints objectAtIndex:idx] objectForKey:@"html_instructions"];
+        [directionDict setValue:routePoints[7] forKey:@"distance"];
+
         
-        NSRange range = [htmlinstructions rangeOfString:@"<div"];
-        if (range.location != NSNotFound) {
-            range.length = [htmlinstructions length] - 1 - range.location;
-            NSRange range2 = [htmlinstructions rangeOfString:@">" options:NSLiteralSearch range:range];
-            range.length = range2.location - range.location+1;
-            htmlinstructions = [htmlinstructions stringByReplacingCharactersInRange:range withString:@". "];
-        }
-        htmlinstructions = [htmlinstructions stringByReplacingOccurrencesOfString:@"</div>" withString:@""];
-        [directionDict setValue:[htmlinstructions stringByConvertingHTMLToPlainText] forKey:@"html_instructions"];
+//        [directionDict setValue:[durationDict objectForKey:@"text"] forKey:@"duration"];
+        
+//        NSString *htmlinstructions = [[routePoints objectAtIndex:idx] objectForKey:@"html_instructions"];
+//        
+//        NSRange range = [htmlinstructions rangeOfString:@"<div"];
+//        if (range.location != NSNotFound) {
+//            range.length = [htmlinstructions length] - 1 - range.location;
+//            NSRange range2 = [htmlinstructions rangeOfString:@">" options:NSLiteralSearch range:range];
+//            range.length = range2.location - range.location+1;
+//            htmlinstructions = [htmlinstructions stringByReplacingCharactersInRange:range withString:@". "];
+//        }
+//        htmlinstructions = [htmlinstructions stringByReplacingOccurrencesOfString:@"</div>" withString:@""];
+//        [directionDict setValue:[htmlinstructions stringByConvertingHTMLToPlainText] forKey:@"html_instructions"];
+        
+        NSMutableDictionary *loc = [NSMutableDictionary dictionary];
+        NSArray *initialPoint = routePoints[11];
+        loc[@"lat"] = initialPoint[0][0];
+        loc[@"lng"] = initialPoint[0][1];
+        directionDict[@"start_location"] = loc;
+        directionDict[@"html_instructions"] = routePoints[2];
         
         [self.directionsArray addObject:directionDict];
         
-        pointDic=[[routePoints objectAtIndex:idx] objectForKey:@"polyline"];
+//        pointDic=[[routePoints objectAtIndex:idx] objectForKey:@"polyline"];
         
-        NSMutableString *mutString=[pointDic objectForKey:@"points"];
+//        NSMutableString *mutString=[pointDic objectForKey:@"points"];
         
-        NSMutableArray *decodePoints=[self decodePolyLine:mutString];
+//        NSMutableArray *decodePoints=[self decodePolyLine:mutString];
+        NSMutableArray *decodePoints = [self decodePolyLine:points];
         
         int routeSegmentIndex = 0;
-        MKMapPoint *routeSegmentPoints = malloc(sizeof(CLLocationCoordinate2D) * ([decodePoints count]));
+        MKMapPoint *routeSegmentPoints = malloc(sizeof(MKMapPoint) * ([decodePoints count]));
         for (idx2 = 0; idx2<[decodePoints count]; idx2++) {
-            CLLocationCoordinate2D coord = [[decodePoints objectAtIndex:idx2] coordinate];
-            
+            CLLocation *location = [decodePoints objectAtIndex:idx2];
+            CLLocationCoordinate2D coord = location.coordinate;
+            CLLocationCoordinate2D c = CLLocationCoordinate2DMake(coord.latitude, coord.longitude);
             MKMapPoint point = MKMapPointForCoordinate(coord);
+            
+            NSLog(@"%f, %f", c.latitude, c.longitude);
             
             if (idxGen == 0) {
                 northEastPoint = point;
@@ -1357,8 +1288,8 @@ typedef enum {
     
 }
 
+#if USE_GOOGLE
 -(NSMutableArray *)decodePolyLine: (NSMutableString *)encoded {
-    //[encoded replaceOccurrencesOfString:@"\\\\" withString:@"\\" options:NSLiteralSearch range:NSMakeRange(0, [encoded length])];
     NSInteger len = [encoded length];
     NSInteger index = 0;
     NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -1388,13 +1319,23 @@ typedef enum {
         NSNumber *numLongitude = [NSNumber numberWithFloat:lng * 1e-5];
         //CLLocation *loc = [[CLLocation alloc] initWithLatitude:[latitude floatValue] longitude:[longitude floatValue]];
         CLLocationDegrees latitude  = [numLatitude  doubleValue];
-		CLLocationDegrees longitude = [numLongitude doubleValue];
+        CLLocationDegrees longitude = [numLongitude doubleValue];
         
         //NSLog(@"%f %f",[numLatitude  doubleValue],[numLongitude doubleValue]);
-    
+        
         CLLocation *towerLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
         [array addObject:towerLocation];
         
+    }
+#else 
+-(NSMutableArray *)decodePolyLine: (NSArray*)points {
+#endif
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (NSArray *location in points) {
+        CLLocationDegrees latitude  = [location[1]  doubleValue];
+        CLLocationDegrees longitude = [location[0] doubleValue];
+        CLLocation *towerLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+        [array addObject:towerLocation];
     }
     
     return array;
@@ -1451,12 +1392,27 @@ typedef enum {
 - (void)getRouteWithType:(RouteType)type {
     [self showLoadingView];
     MKPointAnnotation *origin = routeLocationsArray[0];
-    MKPointAnnotation *destination = routeLocationsArray[1];
-    self.routeAnnotation = [self getAnnotationFromMapWithLocation:detailLocation];
-    if (!self.routeAnnotation)
-        self.routeAnnotation = [[StoreAnnotation alloc] initWithStoreLocation:detailLocation];
-//
-    [WebServicesManager connectWithType:(WSConnectionTypeGoogleTraceroute + type) singleParam:nil jsonParam:nil originLocation:origin.coordinate destLocation:destination.coordinate withObserver:self];
+    MKPointAnnotation *destination = [routeLocationsArray lastObject];
+
+    BOOL useGet = NO;
+    NSMutableArray *array = nil;
+    NSString *param = nil;
+//    if (useGet) {
+    param = [NSString stringWithFormat:@"%g,%g", origin.coordinate.latitude, origin.coordinate.longitude];
+//    } else {
+        array = [NSMutableArray array];
+        for (MKPointAnnotation *annotation in routeLocationsArray) {
+            if (annotation == [routeLocationsArray firstObject])
+                continue;
+            CLLocationCoordinate2D coordinate = annotation.coordinate;
+            NSDictionary *destinationDict = [NSDictionary dictionaryWithObjects:@[@(coordinate.latitude), @(coordinate.longitude)] forKeys:@[@"lat", @"lng"]];
+            [array addObject:destinationDict];
+        }
+//    }
+    
+    [WebServicesManager connectWithType:WSConnectionTypeGoogleTraceroute singleParam:param jsonParam:[array JSONString] originLocation:CLLocationCoordinate2DZero destLocation:CLLocationCoordinate2DZero withObserver:self];
+    
+//    [WebServicesManager connectWithType:(WSConnectionTypeGoogleTraceroute + type) singleParam:nil jsonParam:nil originLocation:origin.coordinate destLocation:destination.coordinate withObserver:self];
 }
 
 - (StoreAnnotation*) getAnnotationFromMapWithLocation:(StoreLocation*)location {
@@ -1781,6 +1737,25 @@ typedef enum {
 
     
 }
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    if (status == kCLAuthorizationStatusNotDetermined) {
+        if ([manager respondsToSelector:@selector(requestAlwaysAuthorization)]) { // iOS8+
+            // Sending a message to avoid compile time error
+            [manager requestAlwaysAuthorization];
+//
+//            self.storeMapView.showsUserLocation = YES;
+            
+        }
+    } else if (status == kCLAuthorizationStatusAuthorizedAlways ) {
+        self.storeMapView.showsUserLocation = YES;
+    }
+}
+
+- (IBAction)destinationsButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"GoToDestinations" sender:sender];
+}
+
 
 @end
 

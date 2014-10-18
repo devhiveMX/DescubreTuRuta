@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoreLocatorViewController">
             <connections>
                 <outlet property="addressLabel" destination="100" id="101"/>
                 <outlet property="addressView" destination="98" id="111"/>
-                <outlet property="bottomBar" destination="30" id="46"/>
+                <outlet property="bottomBar" destination="30" id="73w-dG-xKt"/>
                 <outlet property="detailView" destination="63" id="74"/>
                 <outlet property="directionsButton" destination="103" id="110"/>
                 <outlet property="distanceLabel" destination="70" id="79"/>
@@ -48,6 +49,8 @@
             </subviews>
             <color key="backgroundColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
             <color key="tintColor" red="0.26666668059999998" green="0.47843140360000003" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="6">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -217,10 +220,6 @@
                     <rect key="frame" x="10" y="10" width="300" height="309"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fondo_detalleTienda.png" id="73">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="309"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="64">
                             <rect key="frame" x="15" y="15" width="45" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -309,12 +308,15 @@
                                 <action selector="detailButtonPressed:" destination="-1" eventType="touchUpInside" id="83"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fondo_detalleTienda.png" id="73">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="309"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
@@ -342,4 +344,9 @@
         <image name="fondo_detalleTienda.png" width="300" height="304"/>
         <image name="mylocation" width="33" height="30"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

@@ -14,8 +14,6 @@
 		A865036D19C15F4800CA7EEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A865036C19C15F4800CA7EEB /* main.m */; };
 		A865037119C15F4800CA7EEB /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A865037019C15F4800CA7EEB /* MPAppDelegate.m */; };
 		A865037419C15F4800CA7EEB /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A865037219C15F4800CA7EEB /* Main_iPhone.storyboard */; };
-		A865037719C15F4800CA7EEB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A865037519C15F4800CA7EEB /* Main_iPad.storyboard */; };
-		A865037A19C15F4800CA7EEB /* MPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865037919C15F4800CA7EEB /* MPViewController.m */; };
 		A865037C19C15F4800CA7EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A865037B19C15F4800CA7EEB /* Images.xcassets */; };
 		A865038319C15F4800CA7EEB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A865038219C15F4800CA7EEB /* XCTest.framework */; };
 		A865038419C15F4800CA7EEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A865036019C15F4800CA7EEB /* Foundation.framework */; };
@@ -204,7 +202,6 @@
 		A865051419C15FD900CA7EEB /* StoreLocatorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865045719C15FD900CA7EEB /* StoreLocatorDetailViewController.m */; };
 		A865051519C15FD900CA7EEB /* StoreLocatorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A865045819C15FD900CA7EEB /* StoreLocatorDetailViewController.xib */; };
 		A865051619C15FD900CA7EEB /* StoreLocatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865045A19C15FD900CA7EEB /* StoreLocatorViewController.m */; };
-		A865051719C15FD900CA7EEB /* StoreLocatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A865045B19C15FD900CA7EEB /* StoreLocatorViewController.xib */; };
 		A865051B19C1600B00CA7EEB /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = A865051A19C1600B00CA7EEB /* UIColor+RGB.m */; };
 		A865051E19C161B200CA7EEB /* WBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865051D19C161B200CA7EEB /* WBaseViewController.m */; };
 		A865052219C1623700CA7EEB /* ComboPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A865052019C1623700CA7EEB /* ComboPickerView.m */; };
@@ -240,6 +237,8 @@
 		A8782F7119C3E26D00103DCD /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A8782F7019C3E26D00103DCD /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A899D85019C401BC000FFB00 /* mylocation.png in Resources */ = {isa = PBXBuildFile; fileRef = A899D84F19C401BC000FFB00 /* mylocation.png */; };
 		A8BD315619C2CCA100759828 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BD315519C2CCA100759828 /* LoadingView.xib */; };
+		A8D806AA19EA564C00986044 /* MPRouteDestinationsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D806A919EA564C00986044 /* MPRouteDestinationsViewcontroller.m */; };
+		A8D806AD19EA587A00986044 /* MPDestinationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D806AC19EA587A00986044 /* MPDestinationTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,9 +263,6 @@
 		A865036F19C15F4800CA7EEB /* MPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPAppDelegate.h; sourceTree = "<group>"; };
 		A865037019C15F4800CA7EEB /* MPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPAppDelegate.m; sourceTree = "<group>"; };
 		A865037319C15F4800CA7EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		A865037619C15F4800CA7EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		A865037819C15F4800CA7EEB /* MPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPViewController.h; sourceTree = "<group>"; };
-		A865037919C15F4800CA7EEB /* MPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPViewController.m; sourceTree = "<group>"; };
 		A865037B19C15F4800CA7EEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A865038119C15F4800CA7EEB /* MappirTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MappirTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A865038219C15F4800CA7EEB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -460,7 +456,6 @@
 		A865045819C15FD900CA7EEB /* StoreLocatorDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreLocatorDetailViewController.xib; sourceTree = "<group>"; };
 		A865045919C15FD900CA7EEB /* StoreLocatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreLocatorViewController.h; sourceTree = "<group>"; };
 		A865045A19C15FD900CA7EEB /* StoreLocatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLocatorViewController.m; sourceTree = "<group>"; };
-		A865045B19C15FD900CA7EEB /* StoreLocatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreLocatorViewController.xib; sourceTree = "<group>"; };
 		A865051919C1600B00CA7EEB /* UIColor+RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGB.h"; sourceTree = "<group>"; };
 		A865051A19C1600B00CA7EEB /* UIColor+RGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGB.m"; sourceTree = "<group>"; };
 		A865051C19C161B200CA7EEB /* WBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBaseViewController.h; sourceTree = "<group>"; };
@@ -530,6 +525,10 @@
 		A8782F7019C3E26D00103DCD /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		A899D84F19C401BC000FFB00 /* mylocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mylocation.png; sourceTree = "<group>"; };
 		A8BD315519C2CCA100759828 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		A8D806A819EA564C00986044 /* MPRouteDestinationsViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPRouteDestinationsViewcontroller.h; sourceTree = "<group>"; };
+		A8D806A919EA564C00986044 /* MPRouteDestinationsViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRouteDestinationsViewcontroller.m; sourceTree = "<group>"; };
+		A8D806AB19EA587A00986044 /* MPDestinationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDestinationTableViewCell.h; sourceTree = "<group>"; };
+		A8D806AC19EA587A00986044 /* MPDestinationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDestinationTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,11 +609,8 @@
 				A865036F19C15F4800CA7EEB /* MPAppDelegate.h */,
 				A865037019C15F4800CA7EEB /* MPAppDelegate.m */,
 				A865037219C15F4800CA7EEB /* Main_iPhone.storyboard */,
-				A865037519C15F4800CA7EEB /* Main_iPad.storyboard */,
 				A8782F6F19C3E26D00103DCD /* GTMNSString+HTML.h */,
 				A8782F7019C3E26D00103DCD /* GTMNSString+HTML.m */,
-				A865037819C15F4800CA7EEB /* MPViewController.h */,
-				A865037919C15F4800CA7EEB /* MPViewController.m */,
 				A865037B19C15F4800CA7EEB /* Images.xcassets */,
 				A865036719C15F4800CA7EEB /* Supporting Files */,
 				A865052719C1638600CA7EEB /* Definitions.h */,
@@ -681,7 +677,10 @@
 				A865045819C15FD900CA7EEB /* StoreLocatorDetailViewController.xib */,
 				A865045919C15FD900CA7EEB /* StoreLocatorViewController.h */,
 				A865045A19C15FD900CA7EEB /* StoreLocatorViewController.m */,
-				A865045B19C15FD900CA7EEB /* StoreLocatorViewController.xib */,
+				A8D806A819EA564C00986044 /* MPRouteDestinationsViewcontroller.h */,
+				A8D806A919EA564C00986044 /* MPRouteDestinationsViewcontroller.m */,
+				A8D806AB19EA587A00986044 /* MPDestinationTableViewCell.h */,
+				A8D806AC19EA587A00986044 /* MPDestinationTableViewCell.m */,
 			);
 			path = StoreLocator;
 			sourceTree = "<group>";
@@ -1042,7 +1041,6 @@
 				A865050F19C15FD900CA7EEB /* Suburbia@2x.png in Resources */,
 				A865046C19C15FD900CA7EEB /* iconoSams.png in Resources */,
 				A86504E319C15FD900CA7EEB /* fondo_pieTiendas_indicaciones.png in Resources */,
-				A865051719C15FD900CA7EEB /* StoreLocatorViewController.xib in Resources */,
 				A865049519C15FD900CA7EEB /* btnIndicaciones_barraInferior.png in Resources */,
 				A865050419C15FD900CA7EEB /* indicador_vips@2x.png in Resources */,
 				A865045D19C15FD900CA7EEB /* btnBrujula_barraInferior@2x.png in Resources */,
@@ -1076,7 +1074,6 @@
 				A865048919C15FD900CA7EEB /* btnBrujula_Detalle.png in Resources */,
 				A865046619C15FD900CA7EEB /* detallesTienda_Brujula.png in Resources */,
 				A865046819C15FD900CA7EEB /* guiaMapaGirar.png in Resources */,
-				A865037719C15F4800CA7EEB /* Main_iPad.storyboard in Resources */,
 				A865048D19C15FD900CA7EEB /* btnCerrar_detalle.png in Resources */,
 				A86504D419C15FD900CA7EEB /* flecha_objeto_lista_press@2x.png in Resources */,
 				A86504E419C15FD900CA7EEB /* fondo_pieTiendas_indicaciones@2x.png in Resources */,
@@ -1232,12 +1229,13 @@
 				A865036D19C15F4800CA7EEB /* main.m in Sources */,
 				A865058119C2292400CA7EEB /* JSONKit.m in Sources */,
 				A865054A19C16CDC00CA7EEB /* NSObject+IsNullOrNil.m in Sources */,
+				A8D806AA19EA564C00986044 /* MPRouteDestinationsViewcontroller.m in Sources */,
 				A865051219C15FD900CA7EEB /* StoreLocatorConfigurationViewController.m in Sources */,
 				A865053E19C16B1E00CA7EEB /* WSConnection.m in Sources */,
-				A865037A19C15F4800CA7EEB /* MPViewController.m in Sources */,
 				A865052A19C163A000CA7EEB /* SlideView.m in Sources */,
 				A865056F19C170E100CA7EEB /* MKMapView+ZoomLevel.m in Sources */,
 				A865053619C1644600CA7EEB /* WEPopoverContainerView.m in Sources */,
+				A8D806AD19EA587A00986044 /* MPDestinationTableViewCell.m in Sources */,
 				A865057219C171C500CA7EEB /* UIViewController+GetButton.m in Sources */,
 				A865054219C16B7F00CA7EEB /* WebServicesManager.m in Sources */,
 				A865052619C1636A00CA7EEB /* CustomToolbar.m in Sources */,
@@ -1299,14 +1297,6 @@
 				A865037319C15F4800CA7EEB /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		A865037519C15F4800CA7EEB /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A865037619C15F4800CA7EEB /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		A865038B19C15F4800CA7EEB /* InfoPlist.strings */ = {
@@ -1400,7 +1390,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mappir/Mappir-Prefix.pch";
 				INFOPLIST_FILE = "Mappir/Mappir-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1413,7 +1405,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mappir/Mappir-Prefix.pch";
 				INFOPLIST_FILE = "Mappir/Mappir-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

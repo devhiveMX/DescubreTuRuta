@@ -32,7 +32,7 @@ MKMapPoint *incrementMemory(MKMapPoint *points, int *count, int increment);
 @protocol WebServicesObserver;
 @protocol StoreLocatorDetailDelegate;
 @protocol WEPopoverControllerDelegate;
-@interface StoreLocatorViewController : WBaseViewController <GPSLocationsParserDelegate, /*UITableViewDataSource, UITableViewDelegate,*/ WebServicesObserver, StoreLocatorDetailDelegate, StoreLocationConfigurationDelegate, WEPopoverControllerDelegate, ARViewDelegate, ARViewDataSource, ARLocationViewDelegate> {
+@interface StoreLocatorViewController : WBaseViewController <GPSLocationsParserDelegate, /*UITableViewDataSource, UITableViewDelegate,*/ WebServicesObserver, StoreLocatorDetailDelegate, StoreLocationConfigurationDelegate, WEPopoverControllerDelegate, ARViewDelegate, ARViewDataSource, ARLocationViewDelegate, CLLocationManagerDelegate> {
     GPSLocationsParser *gpsParser;
     NSArray *storesLocationsArray;
     NSMutableSet *annotationsPool;
@@ -57,6 +57,7 @@ MKMapPoint *incrementMemory(MKMapPoint *points, int *count, int increment);
     StoreLocatorConfigurationViewController *configController;
     int currentMaxStores;
     NSMutableArray *routeLocationsArray;
+    CLLocationManager *locationManager;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *storeMapView;
@@ -119,7 +120,11 @@ MKMapPoint *incrementMemory(MKMapPoint *points, int *count, int increment);
 - (void)setNavigationButtonsHidden:(BOOL)hidden;
 
 -(MKPolyline *) loadRouteWithPoints:(NSArray*)routePoints;
+#if USE_GOOGLE
 -(NSMutableArray *)decodePolyLine: (NSMutableString *)encoded;
+#else
+-(NSMutableArray *)decodePolyLine: (NSArray *)points;
+#endif
 - (IBAction)navgationbButtonpressed:(id)sender;
 - (IBAction)storeLocatorButtonPressed:(id)sender;
 - (void)showDetailOfLocation:(StoreLocation*)location;
