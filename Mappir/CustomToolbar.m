@@ -1,10 +1,4 @@
-//
-//  CustomToolbar.m
-//  WalmartApp
-//
-//  Created by WALMEX3.0 _1 WALMART on 17/10/11.
-//  Copyright (c) 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import "CustomToolbar.h"
 #import "Definitions.h"

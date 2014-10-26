@@ -1,10 +1,4 @@
-//
-//  UIViewController+GetButton.h
-//  WalmartApp
-//
-//  Created by WALMEX3.0 _1 WALMART on 01/08/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import "WBaseViewController.h"

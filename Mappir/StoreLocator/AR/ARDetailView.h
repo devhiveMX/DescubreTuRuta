@@ -1,10 +1,4 @@
-//
-//  ARDetailView.h
-//  Superama1.5
-//
-//  Created by WALMEX3.0 _1 WALMART on 30/08/12.
-//  Copyright (c) 2012 WALMART. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
 

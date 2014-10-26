@@ -1,10 +1,4 @@
-//
-//  SLRoutePoint.m
-//  WalmartApp
-//
-//  Created by WALMEX3.0 _1 WALMART on 02/12/11.
-//  Copyright (c) 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import "SLRoute.h"
 

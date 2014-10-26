@@ -1,10 +1,4 @@
-//
-//  UIView+getFirstResponder.h
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 22/09/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 

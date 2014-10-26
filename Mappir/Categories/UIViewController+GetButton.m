@@ -1,10 +1,4 @@
-//
-//  UIViewController+GetButton.m
-//  WalmartApp
-//
-//  Created by WALMEX3.0 _1 WALMART on 01/08/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import "UIViewController+GetButton.h"
 #import "UIColor+RGB.h"
@@ -264,5 +258,6 @@
     [self showLoadingView];
     [WebServicesManager connectWithType:WSConnectionTypeLogOut singleParam:nil jsonParam:nil originLocation:CLLocationCoordinate2DMake(0, 0) destLocation:CLLocationCoordinate2DMake(0, 0) withObserver:(id<WebServicesObserver>)self];
 }
+
 
 @end

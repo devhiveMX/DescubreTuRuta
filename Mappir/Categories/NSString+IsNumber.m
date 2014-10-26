@@ -1,10 +1,4 @@
-//
-//  NSString+IsNumber.m
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 04/10/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import "NSString+IsNumber.h"
 #import "GTMNSString+HTML.h"

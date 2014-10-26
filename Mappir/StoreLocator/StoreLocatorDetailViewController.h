@@ -1,10 +1,4 @@
-//
-//  StoreLocatorDetailViewController.h
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 13/09/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
 #import "WBaseViewController.h"

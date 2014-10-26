@@ -1,10 +1,4 @@
-//
-//  wsConnection.m
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 19/08/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import "WSConnection.h"
 
@@ -273,8 +267,6 @@ CFTimeInterval CACurrentMediaTime();
     NSString *strFinalURL = nil;
     if (self.type < WSConnectionTypeGoogleInverseGeocoding)
         strFinalURL = [NSString stringWithFormat:@"%@%@", URL_BASE, strURL];
-//    else if (self.type < WSConnectionTypeGoogleTraceroute)
-//        strFinalURL = strURL;
     else
         strFinalURL = strURL;
     if (self.singleParam) {

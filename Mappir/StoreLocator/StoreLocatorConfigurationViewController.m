@@ -1,10 +1,4 @@
-//
-//  StoreLocatorConfigurationViewController.m
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 06/10/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import "StoreLocatorConfigurationViewController.h"
 #import "StoreAnnotation.h"

@@ -1,10 +1,4 @@
-//
-//  WBaseViewController.m
-//  WalmartArgentina
-//
-//  Created by WALMEX3.0 _1 WALMART on 26/01/12.
-//  Copyright (c) 2012 WALMART. All rights reserved.
-//
+
 
 #import "WBaseViewController.h"
 #import "UIColor+RGB.h"

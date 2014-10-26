@@ -1,10 +1,4 @@
-//
-//  WebServicesManager.h
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 15/09/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import "WSConnection.h"
@@ -19,6 +13,7 @@
 - (void)removeObserver:(id<WebServicesObserver>)observer;
 +(WebServicesManager*)defaultManager;
 +(void)connectWithType:(WSConnectionType)connectionType singleParam:(NSString*)param jsonParam:(NSString*)jsonParam originLocation:(CLLocationCoordinate2D)origin destLocation:(CLLocationCoordinate2D)destination withObserver:(id<WebServicesObserver>)observer;
++(void)searchWithCriteria:(NSString*)criteria and4Square:(BOOL)fourSquareEnabled andGooglePlaces:(BOOL)places observer:(id<WebServicesObserver>)observer;
 @end
 
 @protocol WebServicesObserver<NSObject>

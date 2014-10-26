@@ -1,12 +1,6 @@
-//
-//  StoreLocatorViewController.m
-//  StoreLocator
-//
-//  Created by WALMEX3.0 _1 WALMART on 06/07/11.
-//  Copyright 2011 WALMART. All rights reserved.
-//
 
-#import "StoreLocatorViewController.h"
+
+#import "MPRouteViewController.h"
 #import <MapKit/MKUserLocation.h>
 #import <QuartzCore/CAAnimation.h>
 #import "WEPopoverController.h"
@@ -23,6 +17,7 @@
 #import "ARGeoCoordinate.h"
 #import "DirectionAnnotationView.h"
 #import "JSONKit.h"
+#import <AVFoundation/AVFoundation.h>
 
 
 #define MY_LAT 19.454129
@@ -30,6 +25,7 @@
 
 #define ROUTE_COLOR 0x0d4820
 #define ROUTE_SEGMENT_COLOR 0x609c71
+
 
 #define DIST_1 1000
 #define DIST_2 3000
@@ -49,7 +45,11 @@ MKMapPoint *incrementMemory(MKMapPoint *points, int *count, int increment) {
     return tempPointArr;
 }
 
-@implementation StoreLocatorViewController
+@interface MPRouteViewController ()
+@property (nonatomic, strong) AVSpeechSynthesizer *speechSynthesizer;
+@end
+
+@implementation MPRouteViewController
 @synthesize storeMapView;
 @synthesize filterView;
 @synthesize filterTableView;
@@ -192,6 +192,8 @@ typedef enum {
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0; //user needs to press for 2 seconds
     [self.storeMapView addGestureRecognizer:lpgr];
+    
+    [self initSpeechSystem];
 }
 
 - (void)frameDidChangeInView:(UIView *)aView from:(CGRect)from to:(CGRect)to {
@@ -324,7 +326,7 @@ typedef enum {
     UIButton *button = [self getButtonFromType:SuperiorBarButtonHomeSquare];
     [button addTarget:self action:@selector(popNavigationViewControllerAnimated) forControlEvents:UIControlEventTouchUpInside];
 
-    [self.bottomBar removeFromSuperview];
+//    [self.bottomBar removeFromSuperview];
     self.navigationItem.titleView = self.bottomBar;
 }
 
@@ -369,13 +371,8 @@ typedef enum {
 		}
 		
         
-        //annotationView.alpha = 0;
-        
-        
 		return annotationView;
-	}
-	
-	if ([annotation isKindOfClass:[StoreAnnotation class]]) {
+	} else if ([annotation isKindOfClass:[StoreAnnotation class]]) {
 		StoreAnnotation *storeAnnotation = (StoreAnnotation *)annotation;
 		identifier = [NSString stringWithFormat:@"StoreAnnotationView"];
 		
@@ -463,6 +460,7 @@ typedef enum {
             [view performSelector:@selector(animateBlossom) withObject:nil afterDelay:delay];
     }
 }
+
 
 - (MKOverlayView *)mapView:(MKMapView *)map viewForOverlay:(id <MKOverlay>)overlay
 {
@@ -823,6 +821,10 @@ typedef enum {
             break;
         }
     }
+    
+    NSString *stringTitle = [annotation subtitle];
+    
+    [self speak:stringTitle];
     [self performSelector:@selector(selectAnnotation:) withObject:annotation afterDelay:0.25];
     
 }
@@ -896,9 +898,9 @@ typedef enum {
 #pragma mark - WebServicesObserver
 
 - (void)webServicesConnectionDidFinish:(NSNotification*)notification { // userInfo will contain data
-    NSData *data = [[notification userInfo] objectForKey:@"data"];
+    NSDictionary *resultDictionary = [[notification userInfo] objectForKey:@"resultDictionary"];
     WSConnectionType type = [[[notification userInfo] objectForKey:@"type"] intValue];
-    id jsonObject = [data objectFromJSONData];
+    id jsonObject = resultDictionary;
     NSDictionary *dict = nil;
     switch (type) {
         case WSConnectionTypeGoogleTraceroute:
@@ -926,40 +928,49 @@ typedef enum {
                 
                 [self.storeMapView removeOverlay:self.routeLine];
                 self.routeLine = nil;
+                [self.directionsAnnotationsArray removeAllObjects];
+                [self.directionsArray removeAllObjects];
+                northEastPoint = MKMapPointMake(0, 0);
+                southWestPoint = MKMapPointMake(0, 0);
+                if (self.directionsAnnotationsArray == nil) {
+                    self.directionsAnnotationsArray = [NSMutableArray array];
+                }
+                [self.storeMapView removeAnnotations:self.directionsAnnotationsArray];
+                
                 for(NSDictionary *route in routesArray) {
-                    NSDictionary *legsArray = [route objectForKey:@"grafo"];
+                    NSArray *legsArray = [route objectForKey:@"grafo"];
+                    
                     
                     //[directionsArray addObject:[route objectForKey:@"html_instructions"]];
                     
-                    for(NSArray *leg in legsArray) {
+//                    for(NSArray *leg in legsArray) {
 //                        routePoints=leg[12];
                         self.routeDistanceAndtime = [NSMutableDictionary dictionary];
 //                        [routeDistanceAndtime setObject:[[leg objectForKey:@"distance"] objectForKey:@"text"] forKey:@"distance"];
 //                        [routeDistanceAndtime setObject:[[leg objectForKey:@"duration"] objectForKey:@"text"] forKey:@"duration"];
-                        self.routeLine = [self loadRouteWithPoints:leg];
+                        self.routeLine = [self loadRouteWithPoints:legsArray];
                         currentSegmentIndex = -1;
                         if (self.routeLine != nil) {
                             [self.storeMapView addOverlay:self.routeLine];
                         }
-                        if (self.directionsAnnotationsArray == nil) {
-                            self.directionsAnnotationsArray = [NSMutableArray array];
-                        }
-                        [self.storeMapView removeAnnotations:self.directionsAnnotationsArray];
-                        [self.directionsAnnotationsArray removeAllObjects];
+
                         NSInteger index = 0;
                         for (NSDictionary *point in self.directionsArray) {
                             DirectionAnnotation *annotation = [[DirectionAnnotation alloc] initWithDictionary:point];
                             [annotation setStepNumber:index + 1];
                             [self.directionsAnnotationsArray addObject:annotation];
-                            
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self.storeMapView addAnnotation:annotation];
+                            });
                             index++;
                         }
-                        [self.storeMapView addAnnotations:self.directionsAnnotationsArray];
+//                        [self.storeMapView addAnnotations:self.directionsAnnotationsArray];
+                    
                         // zoom in on the route.
                         [self zoomInOnRoute];
                         [storeMapView deselectAnnotation:routeAnnotation animated:YES];
                         
-                    }
+//                    }
                     
                 }
                 [self setNavigationButtonsHidden:NO];
@@ -1134,9 +1145,6 @@ typedef enum {
 	
 	int idxGen=0;
 	
-    MKMapPoint northEastPoint = MKMapPointMake(0, 0); 
-	MKMapPoint southWestPoint = MKMapPointMake(0, 0); 
-	
     MKPolyline *route;
 	
     
@@ -1150,21 +1158,21 @@ typedef enum {
     if (!self.directionsArray) {
         self.directionsArray = [NSMutableArray array];
     }
-    [self.directionsArray removeAllObjects];
-//	for(idx = 0; idx < [routePoints count]; idx++)
+
+	for(idx = 0; idx < [routePoints count]; idx++)
 	{
-        NSDictionary *pointDic;
+        NSArray *pointDic = routePoints[idx];
         
         NSMutableDictionary *directionDict=[NSMutableDictionary dictionary];
         
 //        NSDictionary *distanceDict=[routePoints[7]  objectForKey:@"distance"];
 //        NSDictionary *durationDict=[[routePoints objectAtIndex:idx] objectForKey:@"duration"];
         
-        NSArray *points = routePoints[11];
+        NSArray *points = pointDic[11];
         
 //        [directionDict setValue:[[routePoints objectAtIndex:idx] objectForKey:@"start_location"] forKey:@"start_location"];
         
-        [directionDict setValue:routePoints[7] forKey:@"distance"];
+        [directionDict setValue:pointDic[7] forKey:@"distance"];
 
         
 //        [directionDict setValue:[durationDict objectForKey:@"text"] forKey:@"duration"];
@@ -1182,11 +1190,11 @@ typedef enum {
 //        [directionDict setValue:[htmlinstructions stringByConvertingHTMLToPlainText] forKey:@"html_instructions"];
         
         NSMutableDictionary *loc = [NSMutableDictionary dictionary];
-        NSArray *initialPoint = routePoints[11];
-        loc[@"lat"] = initialPoint[0][0];
-        loc[@"lng"] = initialPoint[0][1];
+        NSArray *initialPoint = pointDic[11];
+        loc[@"lat"] = initialPoint[0][1];
+        loc[@"lng"] = initialPoint[0][0];
         directionDict[@"start_location"] = loc;
-        directionDict[@"html_instructions"] = routePoints[2];
+        directionDict[@"html_instructions"] = pointDic[2];
         
         [self.directionsArray addObject:directionDict];
         
@@ -1756,7 +1764,49 @@ typedef enum {
     [self performSegueWithIdentifier:@"GoToDestinations" sender:sender];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"GoToDestinations"]) {
+        MPRouteDestinationsViewcontroller *controller =  (MPRouteDestinationsViewcontroller*)segue.destinationViewController;
+        controller.delegate = self;
+    }
+}
+    
+- (void)getRouteWithDestinations:(NSArray *)destinationsArray {
+    __block NSArray *array = destinationsArray;
+    [self.navigationController popViewControllerAnimated:YES];
+    double delayInSeconds = 0.4;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //code to be executed on the main queue after delay
+        for (MPSearchResult *result in array) {
+            MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
+            annot.coordinate = result.location;
+            [self.storeMapView addAnnotation:annot];
+            
+            if (!routeLocationsArray) {
+                routeLocationsArray = [[NSMutableArray alloc] init];
+            }
+            [routeLocationsArray addObject:annot];
+        }
+        [self getRouteWithType:RouteTypeCar];
+    });
 
+}
+    
+- (void)initSpeechSystem {
+    self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    [self.speechSynthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryWord];
+
+}
+    
+- (void)speak:(NSString *)text {
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"es-MX"];
+    utterance.rate = AVSpeechUtteranceMinimumSpeechRate + AVSpeechUtteranceMinimumSpeechRate / 2;
+    [self.speechSynthesizer speakUtterance:utterance];
+}
+    
+    
 @end
 
 

@@ -1,10 +1,4 @@
-//
-//  StoreLocatorConfigurationViewController.h
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 06/10/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
 #import "UIColor+RGB.h"

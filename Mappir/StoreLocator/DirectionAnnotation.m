@@ -1,10 +1,4 @@
-//
-//  HeartMapAnnotation.m
-//  HeartsLocator
-//
-//  Created by WALMEX3.0 _1 WALMART on 05/07/11.
-//  Copyright 2011 Latino Mobile. All rights reserved.
-//
+
 
 #import "DirectionAnnotation.h"
 

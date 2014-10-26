@@ -1,10 +1,4 @@
-//
-//  WebServices.h
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 18/08/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #define USE_SUPERAMA_SERVICES   1
 #define PRODUCTION_URL          1   

@@ -1,12 +1,7 @@
-//
-//  WebServicesManager.m
-//  WalmartApp
-//
-//  Created by WALMEX3.0_1_WALMART on 15/09/11.
-//  Copyright 2011 Walmart Stores Inc. All rights reserved.
-//
+
 
 #import "WebServicesManager.h"
+#import "JSONKit.h"
 
 
 static WebServicesManager *_instance;
@@ -33,48 +28,26 @@ inline static NSString* keyForURL(NSURL* url) {
     WSConnection *connection = nil;
     switch(connectionType)
     {
-//        //Connetions made by GET with param in the URL
-//        case WSConnectionTypeAddItemToList:      
-//        case WSConnectionTypeGetListByID:
-//        case WSConnectionTypeDeleteTicketList:
-//        case WSConnectionTypeSendTicketByEmail:
-//        //Connections made by GET without parameters
-//        case WSConnectionTypeCreatelist:
-//        case WSConnectionTypeSaveList:
-//        case WSConnectionTypeGetListByUser:
-//        case WSConnectionTypeGetPurchaseHistoryByUser:    
-//        case WSConnectionTypeGetShoppingCart:
-//        case WSConnectionTypeUpdateTicketList:
-//        case WSConnectionTypeGetCategoriesList:
-//        case WSConnectionTypeLogOut:    
-//        case WSConnectionTypePaymentTypeCatalog:
-//        case WSConnectionTypeDeliveryTypeCatalog:
-//        //Connections made by POST with jsonParameter
-//        case WSConnectionTypeSendOrderByEmail:
-//        case WSConnectionTypeCreateUser:
-//        case WSConnectionTypeLogin:            
-//        case WSConnectionTypeDeleteItem:
-//        case WSConnectionTypeUpdateItemByItem:
-//        case WSConnectionTypeGetItemByUPC:
-//        case WSConnectiontypeSLByBusiness:
-//            
-//            break;
-        //Connections made by GET with the Google API
         case WSConnectionTypeGoogleInverseGeocoding:
             connection = [WSConnection connectionForInverseGeocodingWithOrigin:origin delegate:[self defaultManager]];
             break;
-//        case WSConnectionTypeGoogleTraceroute:
-//            connection = [WSConnection connectionForTraceRouteFromOrigin:origin toDestination:destination delegate:[self defaultManager]];
-//            break;
-//        case WSConnectionTypeGoogleTracerouteOnFoot:
-//            connection = [WSConnection connectionForTraceRouteOnFootFromOrigin:origin toDestination:destination delegate:[self defaultManager]];
-//            break;
         default:
             connection = [WSConnection connectionWithType:connectionType stringParam:param jsonParam:jsonParam delegate:[WebServicesManager defaultManager]];
             break;
     }
     
     [[self defaultManager] loadConnection:connection withObserver:observer];
+}
+
++(void)searchWithCriteria:(NSString*)criteria and4Square:(BOOL)fourSquareEnabled andGooglePlaces:(BOOL)places observer:(id<WebServicesObserver>)observer{
+    NSString *finalCriteria = [criteria stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    if (fourSquareEnabled) {
+        finalCriteria = [finalCriteria stringByAppendingString:@"&4sq"];
+    }
+    if (places) {
+        finalCriteria = [finalCriteria stringByAppendingString:@"&gplaces"];
+    }
+    [WebServicesManager connectWithType:WSConnectionTypeLocationSearch singleParam:finalCriteria jsonParam:nil originLocation:CLLocationCoordinate2DZero destLocation:CLLocationCoordinate2DZero withObserver:observer];
 }
 
 - (void)loadConnection:(WSConnection*)connection withObserver: (id<WebServicesObserver>)observer {
@@ -93,9 +66,19 @@ inline static NSString* keyForURL(NSURL* url) {
     [self.currentConnections removeObjectForKey:connection.url];
     self.currentConnections = [currentConnections copy];
     
+    
+    id resultDictionary = [connection.responseData objectFromJSONData];
+    
+    NSDictionary *userInfo = nil;
+    
+    if ([resultDictionary respondsToSelector:@selector(objectForKey:)]) {
+        userInfo = [NSDictionary dictionaryWithObjectsAndKeys:resultDictionary,@"resultDictionary",[NSNumber numberWithInt:connection.type], @"type", nil];
+    } else {
+        userInfo = [NSDictionary dictionaryWithObjectsAndKeys:resultDictionary,@"resultArray",[NSNumber numberWithInt:connection.type], @"type", nil];
+    }
     NSNotification* notification = [NSNotification notificationWithName:kWSNotificationFinished(connection.url)
                                                                  object:self
-                                                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[connection.responseData copy],@"data",[NSNumber numberWithInt:connection.type], @"type", nil]];
+                                                               userInfo:userInfo];
     [[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:notification waitUntilDone:YES];
     
 }

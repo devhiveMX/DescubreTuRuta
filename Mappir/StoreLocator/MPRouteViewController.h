@@ -1,10 +1,4 @@
-//
-//  StoreLocatorViewController.h
-//  StoreLocator
-//
-//  Created by WALMEX3.0 _1 WALMART on 06/07/11.
-//  Copyright 2011 WALMART. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
 #import "GPSLocationsParser.h"
@@ -18,6 +12,7 @@
 #import "StoreLocatorConfigurationViewController.h"
 #import "WBaseViewController.h"
 #import "ARGeoViewController.h"
+#import "MPRouteDestinationsViewcontroller.h"
 
 #define MAX_LOCATIONS 50
 #define MAX_LOCATIONS_METERS 25
@@ -32,7 +27,7 @@ MKMapPoint *incrementMemory(MKMapPoint *points, int *count, int increment);
 @protocol WebServicesObserver;
 @protocol StoreLocatorDetailDelegate;
 @protocol WEPopoverControllerDelegate;
-@interface StoreLocatorViewController : WBaseViewController <GPSLocationsParserDelegate, /*UITableViewDataSource, UITableViewDelegate,*/ WebServicesObserver, StoreLocatorDetailDelegate, StoreLocationConfigurationDelegate, WEPopoverControllerDelegate, ARViewDelegate, ARViewDataSource, ARLocationViewDelegate, CLLocationManagerDelegate> {
+@interface MPRouteViewController : WBaseViewController <GPSLocationsParserDelegate, /*UITableViewDataSource, UITableViewDelegate,*/ WebServicesObserver, StoreLocatorDetailDelegate, StoreLocationConfigurationDelegate, WEPopoverControllerDelegate, ARViewDelegate, ARViewDataSource, ARLocationViewDelegate, CLLocationManagerDelegate, MPRouteDestinationsDelegate> {
     GPSLocationsParser *gpsParser;
     NSArray *storesLocationsArray;
     NSMutableSet *annotationsPool;
@@ -58,6 +53,8 @@ MKMapPoint *incrementMemory(MKMapPoint *points, int *count, int increment);
     int currentMaxStores;
     NSMutableArray *routeLocationsArray;
     CLLocationManager *locationManager;
+    MKMapPoint northEastPoint;
+    MKMapPoint southWestPoint;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *storeMapView;

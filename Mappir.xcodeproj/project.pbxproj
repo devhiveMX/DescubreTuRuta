@@ -201,7 +201,7 @@
 		A865051319C15FD900CA7EEB /* StoreLocatorConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A865045519C15FD900CA7EEB /* StoreLocatorConfigurationViewController.xib */; };
 		A865051419C15FD900CA7EEB /* StoreLocatorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865045719C15FD900CA7EEB /* StoreLocatorDetailViewController.m */; };
 		A865051519C15FD900CA7EEB /* StoreLocatorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A865045819C15FD900CA7EEB /* StoreLocatorDetailViewController.xib */; };
-		A865051619C15FD900CA7EEB /* StoreLocatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865045A19C15FD900CA7EEB /* StoreLocatorViewController.m */; };
+		A865051619C15FD900CA7EEB /* MPRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865045A19C15FD900CA7EEB /* MPRouteViewController.m */; };
 		A865051B19C1600B00CA7EEB /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = A865051A19C1600B00CA7EEB /* UIColor+RGB.m */; };
 		A865051E19C161B200CA7EEB /* WBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865051D19C161B200CA7EEB /* WBaseViewController.m */; };
 		A865052219C1623700CA7EEB /* ComboPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A865052019C1623700CA7EEB /* ComboPickerView.m */; };
@@ -234,11 +234,35 @@
 		A865057C19C2213500CA7EEB /* DirectionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A865057919C2213500CA7EEB /* DirectionAnnotation.m */; };
 		A865057D19C2213500CA7EEB /* DirectionAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A865057B19C2213500CA7EEB /* DirectionAnnotationView.m */; };
 		A865058119C2292400CA7EEB /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A865058019C2292400CA7EEB /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A86ACFA319F35A860002C9FA /* MPSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86ACFA219F35A860002C9FA /* MPSearchResultsViewController.m */; };
+		A86ACFA619F35E9A0002C9FA /* UIPopoverController+iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = A86ACFA519F35E9A0002C9FA /* UIPopoverController+iPhone.m */; };
+		A86ACFB719F3A81B0002C9FA /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFA819F3A81B0002C9FA /* popoverArrowDown.png */; };
+		A86ACFB819F3A81B0002C9FA /* popoverArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFA919F3A81B0002C9FA /* popoverArrowDown@2x.png */; };
+		A86ACFB919F3A81B0002C9FA /* popoverArrowDownSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFAA19F3A81B0002C9FA /* popoverArrowDownSimple.png */; };
+		A86ACFBA19F3A81B0002C9FA /* popoverArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFAB19F3A81B0002C9FA /* popoverArrowLeft.png */; };
+		A86ACFBB19F3A81B0002C9FA /* popoverArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFAC19F3A81B0002C9FA /* popoverArrowLeft@2x.png */; };
+		A86ACFBC19F3A81B0002C9FA /* popoverArrowLeftSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFAD19F3A81B0002C9FA /* popoverArrowLeftSimple.png */; };
+		A86ACFBD19F3A81B0002C9FA /* popoverArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFAE19F3A81B0002C9FA /* popoverArrowRight.png */; };
+		A86ACFBE19F3A81B0002C9FA /* popoverArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFAF19F3A81B0002C9FA /* popoverArrowRight@2x.png */; };
+		A86ACFBF19F3A81B0002C9FA /* popoverArrowRightSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFB019F3A81B0002C9FA /* popoverArrowRightSimple.png */; };
+		A86ACFC019F3A81B0002C9FA /* popoverArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFB119F3A81B0002C9FA /* popoverArrowUp.png */; };
+		A86ACFC119F3A81B0002C9FA /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFB219F3A81B0002C9FA /* popoverArrowUp@2x.png */; };
+		A86ACFC219F3A81B0002C9FA /* popoverArrowUpSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFB319F3A81B0002C9FA /* popoverArrowUpSimple.png */; };
+		A86ACFC319F3A81B0002C9FA /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFB419F3A81B0002C9FA /* popoverBg.png */; };
+		A86ACFC419F3A81B0002C9FA /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFB519F3A81B0002C9FA /* popoverBg@2x.png */; };
+		A86ACFC519F3A81B0002C9FA /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A86ACFB619F3A81B0002C9FA /* popoverBgSimple.png */; };
+		A86ACFC819F423F50002C9FA /* MPSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A86ACFC719F423F50002C9FA /* MPSearchResult.m */; };
+		A86ACFCB19F445D10002C9FA /* MPResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A86ACFCA19F445D10002C9FA /* MPResultCell.m */; };
 		A8782F7119C3E26D00103DCD /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A8782F7019C3E26D00103DCD /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A88EAAAF19F4927E00E51CBC /* UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EAAAE19F4927E00E51CBC /* UIImage+Extras.m */; };
 		A899D85019C401BC000FFB00 /* mylocation.png in Resources */ = {isa = PBXBuildFile; fileRef = A899D84F19C401BC000FFB00 /* mylocation.png */; };
 		A8BD315619C2CCA100759828 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BD315519C2CCA100759828 /* LoadingView.xib */; };
 		A8D806AA19EA564C00986044 /* MPRouteDestinationsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D806A919EA564C00986044 /* MPRouteDestinationsViewcontroller.m */; };
 		A8D806AD19EA587A00986044 /* MPDestinationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D806AC19EA587A00986044 /* MPDestinationTableViewCell.m */; };
+		A8E519B119FCDB5A005D78AF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E519B019FCDB5A005D78AF /* AudioToolbox.framework */; };
+		A8E519B319FCDB5F005D78AF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E519B219FCDB5F005D78AF /* AVFoundation.framework */; };
+		A8E519D919FCE805005D78AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E519D819FCE805005D78AF /* SystemConfiguration.framework */; };
+		A8E519DB19FCE824005D78AF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E519DA19FCE824005D78AF /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -454,8 +478,8 @@
 		A865045619C15FD900CA7EEB /* StoreLocatorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreLocatorDetailViewController.h; sourceTree = "<group>"; };
 		A865045719C15FD900CA7EEB /* StoreLocatorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLocatorDetailViewController.m; sourceTree = "<group>"; };
 		A865045819C15FD900CA7EEB /* StoreLocatorDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreLocatorDetailViewController.xib; sourceTree = "<group>"; };
-		A865045919C15FD900CA7EEB /* StoreLocatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreLocatorViewController.h; sourceTree = "<group>"; };
-		A865045A19C15FD900CA7EEB /* StoreLocatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreLocatorViewController.m; sourceTree = "<group>"; };
+		A865045919C15FD900CA7EEB /* MPRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPRouteViewController.h; sourceTree = "<group>"; };
+		A865045A19C15FD900CA7EEB /* MPRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRouteViewController.m; sourceTree = "<group>"; };
 		A865051919C1600B00CA7EEB /* UIColor+RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGB.h"; sourceTree = "<group>"; };
 		A865051A19C1600B00CA7EEB /* UIColor+RGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGB.m"; sourceTree = "<group>"; };
 		A865051C19C161B200CA7EEB /* WBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBaseViewController.h; sourceTree = "<group>"; };
@@ -521,14 +545,43 @@
 		A865057B19C2213500CA7EEB /* DirectionAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionAnnotationView.m; sourceTree = "<group>"; };
 		A865057F19C2292400CA7EEB /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		A865058019C2292400CA7EEB /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		A86ACFA119F35A860002C9FA /* MPSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSearchResultsViewController.h; sourceTree = "<group>"; };
+		A86ACFA219F35A860002C9FA /* MPSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSearchResultsViewController.m; sourceTree = "<group>"; };
+		A86ACFA419F35E9A0002C9FA /* UIPopoverController+iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+iPhone.h"; sourceTree = "<group>"; };
+		A86ACFA519F35E9A0002C9FA /* UIPopoverController+iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+iPhone.m"; sourceTree = "<group>"; };
+		A86ACFA819F3A81B0002C9FA /* popoverArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
+		A86ACFA919F3A81B0002C9FA /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
+		A86ACFAA19F3A81B0002C9FA /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
+		A86ACFAB19F3A81B0002C9FA /* popoverArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
+		A86ACFAC19F3A81B0002C9FA /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
+		A86ACFAD19F3A81B0002C9FA /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
+		A86ACFAE19F3A81B0002C9FA /* popoverArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
+		A86ACFAF19F3A81B0002C9FA /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
+		A86ACFB019F3A81B0002C9FA /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
+		A86ACFB119F3A81B0002C9FA /* popoverArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
+		A86ACFB219F3A81B0002C9FA /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
+		A86ACFB319F3A81B0002C9FA /* popoverArrowUpSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowUpSimple.png; sourceTree = "<group>"; };
+		A86ACFB419F3A81B0002C9FA /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
+		A86ACFB519F3A81B0002C9FA /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
+		A86ACFB619F3A81B0002C9FA /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
+		A86ACFC619F423F50002C9FA /* MPSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSearchResult.h; sourceTree = "<group>"; };
+		A86ACFC719F423F50002C9FA /* MPSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSearchResult.m; sourceTree = "<group>"; };
+		A86ACFC919F445D10002C9FA /* MPResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPResultCell.h; sourceTree = "<group>"; };
+		A86ACFCA19F445D10002C9FA /* MPResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPResultCell.m; sourceTree = "<group>"; };
 		A8782F6F19C3E26D00103DCD /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		A8782F7019C3E26D00103DCD /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		A88EAAAD19F4927E00E51CBC /* UIImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extras.h"; sourceTree = "<group>"; };
+		A88EAAAE19F4927E00E51CBC /* UIImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extras.m"; sourceTree = "<group>"; };
 		A899D84F19C401BC000FFB00 /* mylocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mylocation.png; sourceTree = "<group>"; };
 		A8BD315519C2CCA100759828 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		A8D806A819EA564C00986044 /* MPRouteDestinationsViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPRouteDestinationsViewcontroller.h; sourceTree = "<group>"; };
 		A8D806A919EA564C00986044 /* MPRouteDestinationsViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRouteDestinationsViewcontroller.m; sourceTree = "<group>"; };
 		A8D806AB19EA587A00986044 /* MPDestinationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDestinationTableViewCell.h; sourceTree = "<group>"; };
 		A8D806AC19EA587A00986044 /* MPDestinationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDestinationTableViewCell.m; sourceTree = "<group>"; };
+		A8E519B019FCDB5A005D78AF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A8E519B219FCDB5F005D78AF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A8E519D819FCE805005D78AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A8E519DA19FCE824005D78AF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,6 +589,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E519DB19FCE824005D78AF /* Security.framework in Frameworks */,
+				A8E519D919FCE805005D78AF /* SystemConfiguration.framework in Frameworks */,
+				A8E519B319FCDB5F005D78AF /* AVFoundation.framework in Frameworks */,
+				A8E519B119FCDB5A005D78AF /* AudioToolbox.framework in Frameworks */,
 				A865036319C15F4800CA7EEB /* CoreGraphics.framework in Frameworks */,
 				A865036519C15F4800CA7EEB /* UIKit.framework in Frameworks */,
 				A865036119C15F4800CA7EEB /* Foundation.framework in Frameworks */,
@@ -577,6 +634,10 @@
 		A865035F19C15F4800CA7EEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8E519DA19FCE824005D78AF /* Security.framework */,
+				A8E519D819FCE805005D78AF /* SystemConfiguration.framework */,
+				A8E519B219FCDB5F005D78AF /* AVFoundation.framework */,
+				A8E519B019FCDB5A005D78AF /* AudioToolbox.framework */,
 				A865036019C15F4800CA7EEB /* Foundation.framework */,
 				A865036219C15F4800CA7EEB /* CoreGraphics.framework */,
 				A865036419C15F4800CA7EEB /* UIKit.framework */,
@@ -671,16 +732,22 @@
 				A865045219C15FD900CA7EEB /* StoreLocation.m */,
 				A865045319C15FD900CA7EEB /* StoreLocatorConfigurationViewController.h */,
 				A865045419C15FD900CA7EEB /* StoreLocatorConfigurationViewController.m */,
+				A86ACFA119F35A860002C9FA /* MPSearchResultsViewController.h */,
+				A86ACFA219F35A860002C9FA /* MPSearchResultsViewController.m */,
 				A865045519C15FD900CA7EEB /* StoreLocatorConfigurationViewController.xib */,
 				A865045619C15FD900CA7EEB /* StoreLocatorDetailViewController.h */,
 				A865045719C15FD900CA7EEB /* StoreLocatorDetailViewController.m */,
 				A865045819C15FD900CA7EEB /* StoreLocatorDetailViewController.xib */,
-				A865045919C15FD900CA7EEB /* StoreLocatorViewController.h */,
-				A865045A19C15FD900CA7EEB /* StoreLocatorViewController.m */,
+				A865045919C15FD900CA7EEB /* MPRouteViewController.h */,
+				A865045A19C15FD900CA7EEB /* MPRouteViewController.m */,
 				A8D806A819EA564C00986044 /* MPRouteDestinationsViewcontroller.h */,
 				A8D806A919EA564C00986044 /* MPRouteDestinationsViewcontroller.m */,
 				A8D806AB19EA587A00986044 /* MPDestinationTableViewCell.h */,
 				A8D806AC19EA587A00986044 /* MPDestinationTableViewCell.m */,
+				A86ACFC619F423F50002C9FA /* MPSearchResult.h */,
+				A86ACFC719F423F50002C9FA /* MPSearchResult.m */,
+				A86ACFC919F445D10002C9FA /* MPResultCell.h */,
+				A86ACFCA19F445D10002C9FA /* MPResultCell.m */,
 			);
 			path = StoreLocator;
 			sourceTree = "<group>";
@@ -891,6 +958,10 @@
 				A865053A19C164BF00CA7EEB /* UIAlertView+AutoDismiss.m */,
 				A865051919C1600B00CA7EEB /* UIColor+RGB.h */,
 				A865051A19C1600B00CA7EEB /* UIColor+RGB.m */,
+				A86ACFA419F35E9A0002C9FA /* UIPopoverController+iPhone.h */,
+				A86ACFA519F35E9A0002C9FA /* UIPopoverController+iPhone.m */,
+				A88EAAAD19F4927E00E51CBC /* UIImage+Extras.h */,
+				A88EAAAE19F4927E00E51CBC /* UIImage+Extras.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -898,6 +969,7 @@
 		A865052B19C1644600CA7EEB /* Popover */ = {
 			isa = PBXGroup;
 			children = (
+				A86ACFA719F3A81B0002C9FA /* PopoverResources */,
 				A865052C19C1644600CA7EEB /* UIBarButtonItem+WEPopover.h */,
 				A865052D19C1644600CA7EEB /* UIBarButtonItem+WEPopover.m */,
 				A865052E19C1644600CA7EEB /* WEPopoverContainerView.h */,
@@ -940,6 +1012,28 @@
 				A865058019C2292400CA7EEB /* JSONKit.m */,
 			);
 			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		A86ACFA719F3A81B0002C9FA /* PopoverResources */ = {
+			isa = PBXGroup;
+			children = (
+				A86ACFA819F3A81B0002C9FA /* popoverArrowDown.png */,
+				A86ACFA919F3A81B0002C9FA /* popoverArrowDown@2x.png */,
+				A86ACFAA19F3A81B0002C9FA /* popoverArrowDownSimple.png */,
+				A86ACFAB19F3A81B0002C9FA /* popoverArrowLeft.png */,
+				A86ACFAC19F3A81B0002C9FA /* popoverArrowLeft@2x.png */,
+				A86ACFAD19F3A81B0002C9FA /* popoverArrowLeftSimple.png */,
+				A86ACFAE19F3A81B0002C9FA /* popoverArrowRight.png */,
+				A86ACFAF19F3A81B0002C9FA /* popoverArrowRight@2x.png */,
+				A86ACFB019F3A81B0002C9FA /* popoverArrowRightSimple.png */,
+				A86ACFB119F3A81B0002C9FA /* popoverArrowUp.png */,
+				A86ACFB219F3A81B0002C9FA /* popoverArrowUp@2x.png */,
+				A86ACFB319F3A81B0002C9FA /* popoverArrowUpSimple.png */,
+				A86ACFB419F3A81B0002C9FA /* popoverBg.png */,
+				A86ACFB519F3A81B0002C9FA /* popoverBg@2x.png */,
+				A86ACFB619F3A81B0002C9FA /* popoverBgSimple.png */,
+			);
+			path = PopoverResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1036,8 +1130,10 @@
 				A86504BD19C15FD900CA7EEB /* btnMapa_mapa.png in Resources */,
 				A865047819C15FD900CA7EEB /* barraDirecciones_inferior@2x.png in Resources */,
 				A865049A19C15FD900CA7EEB /* btnIndicaciones_Detalle@2x.png in Resources */,
+				A86ACFC219F3A81B0002C9FA /* popoverArrowUpSimple.png in Resources */,
 				A865047119C15FD900CA7EEB /* iconoWalmart@2x.png in Resources */,
 				A865051319C15FD900CA7EEB /* StoreLocatorConfigurationViewController.xib in Resources */,
+				A86ACFC319F3A81B0002C9FA /* popoverBg.png in Resources */,
 				A865050F19C15FD900CA7EEB /* Suburbia@2x.png in Resources */,
 				A865046C19C15FD900CA7EEB /* iconoSams.png in Resources */,
 				A86504E319C15FD900CA7EEB /* fondo_pieTiendas_indicaciones.png in Resources */,
@@ -1072,6 +1168,7 @@
 				A865047019C15FD900CA7EEB /* iconoWalmart.png in Resources */,
 				A865050C19C15FD900CA7EEB /* Sams.png in Resources */,
 				A865048919C15FD900CA7EEB /* btnBrujula_Detalle.png in Resources */,
+				A86ACFB919F3A81B0002C9FA /* popoverArrowDownSimple.png in Resources */,
 				A865046619C15FD900CA7EEB /* detallesTienda_Brujula.png in Resources */,
 				A865046819C15FD900CA7EEB /* guiaMapaGirar.png in Resources */,
 				A865048D19C15FD900CA7EEB /* btnCerrar_detalle.png in Resources */,
@@ -1090,6 +1187,7 @@
 				A865037C19C15F4800CA7EEB /* Images.xcassets in Resources */,
 				A865049C19C15FD900CA7EEB /* btnIndicaciones_Detalle_press@2x.png in Resources */,
 				A86504D719C15FD900CA7EEB /* flecha_objeto_lista_tiendas_press.png in Resources */,
+				A86ACFC019F3A81B0002C9FA /* popoverArrowUp.png in Resources */,
 				A865049319C15FD900CA7EEB /* btnConfig_barraInferior_press.png in Resources */,
 				A86504CD19C15FD900CA7EEB /* btnUser_barraDetalle.png in Resources */,
 				A86504E119C15FD900CA7EEB /* fondo_piePopup.png in Resources */,
@@ -1099,6 +1197,7 @@
 				A86504BC19C15FD900CA7EEB /* btnMapa_Detalle_press@2x.png in Resources */,
 				A865048619C15FD900CA7EEB /* btnAtras_barraDirecciones@2x.png in Resources */,
 				A86504E619C15FD900CA7EEB /* fondo_servicios@2x.png in Resources */,
+				A86ACFB819F3A81B0002C9FA /* popoverArrowDown@2x.png in Resources */,
 				A86504A219C15FD900CA7EEB /* btnIndicacionesCaminar_Detalle@2x.png in Resources */,
 				A865047619C15FD900CA7EEB /* barra_tiendaCercana_press@2x.png in Resources */,
 				A865049B19C15FD900CA7EEB /* btnIndicaciones_Detalle_press.png in Resources */,
@@ -1109,11 +1208,15 @@
 				A86504B419C15FD900CA7EEB /* btnLocalizacion_barraInferior_press@2x.png in Resources */,
 				A86504D919C15FD900CA7EEB /* fondo_detalleTienda.png in Resources */,
 				A865050D19C15FD900CA7EEB /* Sams@2x.png in Resources */,
+				A86ACFBD19F3A81B0002C9FA /* popoverArrowRight.png in Resources */,
 				A865051519C15FD900CA7EEB /* StoreLocatorDetailViewController.xib in Resources */,
+				A86ACFBF19F3A81B0002C9FA /* popoverArrowRightSimple.png in Resources */,
 				A86504AE19C15FD900CA7EEB /* btnListas_barraSuperior@2x.png in Resources */,
 				A865047519C15FD900CA7EEB /* barra_tiendaCercana_press.png in Resources */,
 				A865048319C15FD900CA7EEB /* btnAdelante_barraDirecciones_press.png in Resources */,
 				A865050219C15FD900CA7EEB /* indicador_usuario@2x.png in Resources */,
+				A86ACFC419F3A81B0002C9FA /* popoverBg@2x.png in Resources */,
+				A86ACFBE19F3A81B0002C9FA /* popoverArrowRight@2x.png in Resources */,
 				A86504F919C15FD900CA7EEB /* indicador_porton.png in Resources */,
 				A865046419C15FD900CA7EEB /* btnMapaGira_barraInferior.png in Resources */,
 				A86504AD19C15FD900CA7EEB /* btnListas_barraSuperior.png in Resources */,
@@ -1153,9 +1256,12 @@
 				A865046A19C15FD900CA7EEB /* guiaTiendaBrujula.png in Resources */,
 				A86504C419C15FD900CA7EEB /* btnRuta_barraSuperior_press@2x.png in Resources */,
 				A86504A419C15FD900CA7EEB /* btnIndicacionesCaminar_Detalle_press@2x.png in Resources */,
+				A86ACFBA19F3A81B0002C9FA /* popoverArrowLeft.png in Resources */,
 				A86504EB19C15FD900CA7EEB /* fondoAzulInicio.png in Resources */,
 				A865036B19C15F4800CA7EEB /* InfoPlist.strings in Resources */,
+				A86ACFBB19F3A81B0002C9FA /* popoverArrowLeft@2x.png in Resources */,
 				A86504CA19C15FD900CA7EEB /* btnTienda_barraSuperior@2x.png in Resources */,
+				A86ACFBC19F3A81B0002C9FA /* popoverArrowLeftSimple.png in Resources */,
 				A865050019C15FD900CA7EEB /* indicador_superama@2x.png in Resources */,
 				A86504ED19C15FD900CA7EEB /* icono_distanciaCaminar.png in Resources */,
 				A86504A919C15FD900CA7EEB /* btnIndicacionesCarro_Detalle.png in Resources */,
@@ -1172,12 +1278,14 @@
 				A86504B619C15FD900CA7EEB /* btnMapa_barraSuperior@2x.png in Resources */,
 				A86504D319C15FD900CA7EEB /* flecha_objeto_lista_press.png in Resources */,
 				A86504A319C15FD900CA7EEB /* btnIndicacionesCaminar_Detalle_press.png in Resources */,
+				A86ACFB719F3A81B0002C9FA /* popoverArrowDown.png in Resources */,
 				A865046D19C15FD900CA7EEB /* iconoSams@2x.png in Resources */,
 				A86504D819C15FD900CA7EEB /* flecha_objeto_lista_tiendas_press@2x.png in Resources */,
 				A865048419C15FD900CA7EEB /* btnAdelante_barraDirecciones_press@2x.png in Resources */,
 				A865049919C15FD900CA7EEB /* btnIndicaciones_Detalle.png in Resources */,
 				A86504C619C15FD900CA7EEB /* btnSatelite_mapa@2x.png in Resources */,
 				A865050919C15FD900CA7EEB /* logo_tienda_walmart.png in Resources */,
+				A86ACFC119F3A81B0002C9FA /* popoverArrowUp@2x.png in Resources */,
 				A86504AB19C15FD900CA7EEB /* btnIndicacionesCarro_Detalle_press.png in Resources */,
 				A86504FC19C15FD900CA7EEB /* indicador_sams@2x.png in Resources */,
 				A86504C119C15FD900CA7EEB /* btnRuta_barraSuperior.png in Resources */,
@@ -1201,6 +1309,7 @@
 				A86504E219C15FD900CA7EEB /* fondo_piePopup@2x.png in Resources */,
 				A86504DC19C15FD900CA7EEB /* fondo_indicacionesTiempoDistancia@2x.png in Resources */,
 				A865046319C15FD900CA7EEB /* btnMapa_barraInferior_press@2x.png in Resources */,
+				A86ACFC519F3A81B0002C9FA /* popoverBgSimple.png in Resources */,
 				A865050319C15FD900CA7EEB /* indicador_vips.png in Resources */,
 				A865056619C1708300CA7EEB /* ARLocationView.xib in Resources */,
 				A865050B19C15FD900CA7EEB /* Porton.png in Resources */,
@@ -1228,6 +1337,7 @@
 				A865057D19C2213500CA7EEB /* DirectionAnnotationView.m in Sources */,
 				A865036D19C15F4800CA7EEB /* main.m in Sources */,
 				A865058119C2292400CA7EEB /* JSONKit.m in Sources */,
+				A86ACFA319F35A860002C9FA /* MPSearchResultsViewController.m in Sources */,
 				A865054A19C16CDC00CA7EEB /* NSObject+IsNullOrNil.m in Sources */,
 				A8D806AA19EA564C00986044 /* MPRouteDestinationsViewcontroller.m in Sources */,
 				A865051219C15FD900CA7EEB /* StoreLocatorConfigurationViewController.m in Sources */,
@@ -1241,9 +1351,12 @@
 				A865052619C1636A00CA7EEB /* CustomToolbar.m in Sources */,
 				A865057719C2210100CA7EEB /* SLRoute.m in Sources */,
 				A865056B19C170BB00CA7EEB /* ARDetailView.m in Sources */,
+				A86ACFA619F35E9A0002C9FA /* UIPopoverController+iPhone.m in Sources */,
+				A86ACFC819F423F50002C9FA /* MPSearchResult.m in Sources */,
 				A865052219C1623700CA7EEB /* ComboPickerView.m in Sources */,
 				A865056319C1708300CA7EEB /* ARGeoCoordinate.m in Sources */,
 				A865051419C15FD900CA7EEB /* StoreLocatorDetailViewController.m in Sources */,
+				A86ACFCB19F445D10002C9FA /* MPResultCell.m in Sources */,
 				A865051E19C161B200CA7EEB /* WBaseViewController.m in Sources */,
 				A865056519C1708300CA7EEB /* ARLocationView.m in Sources */,
 				A865053B19C164BF00CA7EEB /* UIAlertView+AutoDismiss.m in Sources */,
@@ -1252,6 +1365,7 @@
 				A865054519C16CB400CA7EEB /* UIView+getFirstResponder.m in Sources */,
 				A865037119C15F4800CA7EEB /* MPAppDelegate.m in Sources */,
 				A865055119C16E7A00CA7EEB /* GPSLocationsParser.m in Sources */,
+				A88EAAAF19F4927E00E51CBC /* UIImage+Extras.m in Sources */,
 				A8782F7119C3E26D00103DCD /* GTMNSString+HTML.m in Sources */,
 				A865057C19C2213500CA7EEB /* DirectionAnnotation.m in Sources */,
 				A865051119C15FD900CA7EEB /* StoreLocation.m in Sources */,
@@ -1259,7 +1373,7 @@
 				A865055419C1703B00CA7EEB /* UserAnnotation.m in Sources */,
 				A865053819C1644600CA7EEB /* WETouchableView.m in Sources */,
 				A865051B19C1600B00CA7EEB /* UIColor+RGB.m in Sources */,
-				A865051619C15FD900CA7EEB /* StoreLocatorViewController.m in Sources */,
+				A865051619C15FD900CA7EEB /* MPRouteViewController.m in Sources */,
 				A865054B19C16CDC00CA7EEB /* NSString+IsNumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1387,10 +1501,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/iSpeech",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mappir/Mappir-Prefix.pch";
 				INFOPLIST_FILE = "Mappir/Mappir-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/leonardocid/Downloads/iSpeechSDK-Free-1.0.6/iSpeech",
+					"$(PROJECT_DIR)/iSpeech",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1402,10 +1527,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/iSpeech",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mappir/Mappir-Prefix.pch";
 				INFOPLIST_FILE = "Mappir/Mappir-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/leonardocid/Downloads/iSpeechSDK-Free-1.0.6/iSpeech",
+					"$(PROJECT_DIR)/iSpeech",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

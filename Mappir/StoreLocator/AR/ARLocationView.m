@@ -1,10 +1,4 @@
-//
-//  ARLocationView.m
-//  ARKitDemo
-//
-//  Created by WALMEX3.0 _1 WALMART on 07/08/12.
-//  Copyright (c) 2012 Zac White. All rights reserved.
-//
+
 
 #import "ARLocationView.h"
 #import <QuartzCore/QuartzCore.h>
