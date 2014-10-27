@@ -79,22 +79,41 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSource numberOfResults];
+    if (self.usingSections)
+    {
+        NSDictionary *sectionDict = self.results[section];
+        NSArray *itemsPerSection = sectionDict[@"results"];
+        return [itemsPerSection count];
+    }
+    return [self.results count];
+}
+
+- (MPSearchResult*)itemForIndexPath:(NSIndexPath*)indexPath {
+    if (self.usingSections) {
+        NSDictionary *section = self.results[indexPath.section];
+        NSArray *itemsPerSection = section[@"results"];
+        return itemsPerSection[indexPath.row];
+    }
+    return self.results[indexPath.row];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.usingSections)
+        return [self.results count];
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MPResultCell *cell = (MPResultCell*)[tableView dequeueReusableCellWithIdentifier:@"ResultCell"];
-    MPSearchResult *result = [self.dataSource resultForIndex:indexPath.row];
+    MPSearchResult *result = [self itemForIndexPath:indexPath];
     cell.lblResultName.text = result.resultName;
     cell.lblResultType.text = result.typeString;
     return cell;
 }
 
-- (void)refreshResults {
+- (void)refreshResults:(NSArray*)data {
+    self.results = data;
+    
     [self.resultsTableView reloadData];
     [self.loadingView stopAnimating];
 }

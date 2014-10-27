@@ -17,7 +17,7 @@
 
 @end
 
-@interface MPRouteDestinationsViewcontroller : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, WebServicesObserver, WEPopoverControllerDelegate, MPSearchResultsDataSource, MPSearchResultsDelegate> {
+@interface MPRouteDestinationsViewcontroller : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, WebServicesObserver, WEPopoverControllerDelegate, MPSearchResultsDelegate> {
     NSMutableArray *destinationsArray;
     NSInteger currentSearchFieldIndex;
     BOOL canGetRoute;

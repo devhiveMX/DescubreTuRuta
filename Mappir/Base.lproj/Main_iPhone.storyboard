@@ -158,9 +158,9 @@
                                     <constraint firstAttribute="height" constant="44" id="n7T-49-98y"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s26-Nr-IRz">
-                                <rect key="frame" x="264" y="436" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s26-Nr-IRz">
+                                <rect key="frame" x="280" y="436" width="40" height="40"/>
+                                <state key="normal" image="menu_buscar.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -231,7 +231,7 @@
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="run-5Q-jbG"/>
                         <barButtonItem style="plain" id="Nae-9b-UyQ">
-                            <button key="customView" hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vO2-fJ-nUp">
+                            <button key="customView" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vO2-fJ-nUp">
                                 <rect key="frame" x="122" y="7" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="btnIndicaciones_barraInferior.png">
@@ -306,7 +306,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wTk-jJ-ZU6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.81176470590000005" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DestinationCell" id="SYt-S9-73q" customClass="MPDestinationTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -495,8 +495,8 @@
         <image name="btnBrujula_barraInferior_press.png" width="33" height="30"/>
         <image name="btnCerrar_detalle.png" width="33" height="30"/>
         <image name="btnCerrar_detalle_press.png" width="33" height="30"/>
-        <image name="btnConfig_barraInferior.png" width="33" height="30"/>
-        <image name="btnConfig_barraInferior_press.png" width="33" height="30"/>
+        <image name="btnConfig_barraInferior.png" width="25" height="25"/>
+        <image name="btnConfig_barraInferior_press.png" width="25" height="25"/>
         <image name="btnIndicacionesCaminar_Detalle.png" width="33" height="30"/>
         <image name="btnIndicacionesCaminar_Detalle_press.png" width="33" height="30"/>
         <image name="btnIndicacionesCarro_Detalle.png" width="33" height="30"/>
@@ -505,8 +505,9 @@
         <image name="btnIndicaciones_barraInferior_press.png" width="33" height="30"/>
         <image name="btnMapa_barraSuperior.png" width="33" height="30"/>
         <image name="btnMapa_barraSuperior_press.png" width="33" height="30"/>
-        <image name="btnSatelite_mapa.png" width="33" height="30"/>
+        <image name="btnSatelite_mapa.png" width="25" height="25"/>
         <image name="fondo_detalleTienda.png" width="300" height="304"/>
+        <image name="menu_buscar.png" width="40" height="40"/>
         <image name="mylocation" width="33" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

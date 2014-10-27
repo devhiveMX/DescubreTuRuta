@@ -193,6 +193,9 @@ typedef enum {
     lpgr.minimumPressDuration = 1.0; //user needs to press for 2 seconds
     [self.storeMapView addGestureRecognizer:lpgr];
     
+    self.directionsAnnotationsArray = [NSMutableArray array];
+    self.directionsArray = [NSMutableArray array];
+    
     [self initSpeechSystem];
 }
 
@@ -925,17 +928,7 @@ typedef enum {
             
             if (routesArray) {
                 NSArray *routePoints = nil;
-                
-                [self.storeMapView removeOverlay:self.routeLine];
-                self.routeLine = nil;
-                [self.directionsAnnotationsArray removeAllObjects];
-                [self.directionsArray removeAllObjects];
-                northEastPoint = MKMapPointMake(0, 0);
-                southWestPoint = MKMapPointMake(0, 0);
-                if (self.directionsAnnotationsArray == nil) {
-                    self.directionsAnnotationsArray = [NSMutableArray array];
-                }
-                [self.storeMapView removeAnnotations:self.directionsAnnotationsArray];
+                [self resetMapAnnotations];
                 
                 for(NSDictionary *route in routesArray) {
                     NSArray *legsArray = [route objectForKey:@"grafo"];
@@ -1155,9 +1148,6 @@ typedef enum {
     MKMapPoint *tempPointArr = NULL;
 	int idx;
     int idx2;
-    if (!self.directionsArray) {
-        self.directionsArray = [NSMutableArray array];
-    }
 
 	for(idx = 0; idx < [routePoints count]; idx++)
 	{
@@ -1713,7 +1703,7 @@ typedef enum {
         ARGeoCoordinate *geoCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation];
         geoCoordinate.title = location.storeName;
         geoCoordinate.type = location.type;
-        geoCoordinate.identifier = location.storeID;
+        geoCoordinate.identifier = (int)location.storeID;
         [tempLocations addObject:geoCoordinate ];
     }
     [self.arGeoViewController updateCoordinates:tempLocations];
@@ -1722,7 +1712,7 @@ typedef enum {
 - (void)detailView:(UIView*)detailView buttonPressed:(UIButton*)button {
     if (self.detailLocation) {
         [self showLoadingView];
-        RouteType type = button.tag;
+        RouteType type = (RouteType)button.tag;
         self.routeAnnotation = [self getAnnotationFromMapWithLocation:detailLocation];
         if (!self.routeAnnotation)
             self.routeAnnotation = [[StoreAnnotation alloc] initWithStoreLocation:detailLocation];
@@ -1778,9 +1768,12 @@ typedef enum {
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //code to be executed on the main queue after delay
+        [self resetMapAnnotations];
+        [routeLocationsArray removeAllObjects];
         for (MPSearchResult *result in array) {
             MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
             annot.coordinate = result.location;
+            annot.title = result.resultName;
             [self.storeMapView addAnnotation:annot];
             
             if (!routeLocationsArray) {
@@ -1806,6 +1799,15 @@ typedef enum {
     [self.speechSynthesizer speakUtterance:utterance];
 }
     
+- (void)resetMapAnnotations {
+    [self.storeMapView removeOverlay:self.routeLine];
+    [self.storeMapView removeAnnotations:self.directionsAnnotationsArray];
+    self.routeLine = nil;
+    [self.directionsAnnotationsArray removeAllObjects];
+    [self.directionsArray removeAllObjects];
+    northEastPoint = MKMapPointMake(0, 0);
+    southWestPoint = MKMapPointMake(0, 0);
+}
     
 @end
 

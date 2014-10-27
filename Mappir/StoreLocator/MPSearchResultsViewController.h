@@ -8,21 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "MPSearchResult.h"
-@protocol MPSearchResultsDataSource <NSObject>
-- (NSInteger)numberOfResults;
-- (MPSearchResult*)resultForIndex:(NSInteger)index;
-@end
 
 @protocol MPSearchResultsDelegate <NSObject>
 - (void)resultSelected:(NSInteger)index;
+- (BOOL)shouldUseSections;
 @end
 
 @interface MPSearchResultsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, weak) id<MPSearchResultsDataSource> dataSource;
 @property (nonatomic, weak) id<MPSearchResultsDelegate> delegate;
 @property (nonatomic) BOOL loadingOnStart;
+@property (nonatomic, strong) NSArray *results;
+@property (nonatomic) BOOL usingSections;
 
-- (void)refreshResults;
+- (void)refreshResults:(NSArray*)results;
 
 @end

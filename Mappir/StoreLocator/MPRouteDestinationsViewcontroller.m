@@ -52,7 +52,11 @@
         if (indexPath.row == 0) {
             [destinationCell configure:TypeOrigin];
         } else if (indexPath.row == [destinationsArray count] - 1) {
-            [destinationCell configure:TypeDestination];
+            if (destinationsArray.count < 6) {
+                [destinationCell configure:TypeDestination];
+            } else {
+                [destinationCell configure:TypeDestinationFinal];
+            }
         } else {
             [destinationCell configure:TypeMiddle];
         }
@@ -62,6 +66,7 @@
             button = (UIButton*)[cell.contentView viewWithTag:5];
         }
         if (![button targetForAction:@selector(startRetrievingRoute:) withSender:button]) {
+            [button.layer setCornerRadius:10];
             [button addTarget:self action:@selector(startRetrievingRoute:) forControlEvents:UIControlEventTouchUpInside];
             [button setBackgroundImage:[UIImage imageFromColor:[UIColor colorWithRed:0.41 green:0.41 blue:0.41 alpha:1.0]] forState:UIControlStateDisabled];
         }
@@ -74,7 +79,7 @@
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
     [self.resultsArray removeAllObjects];
     MPSearchResultsViewController *resultsVC = (MPSearchResultsViewController*) [self.popover contentViewController];
-    [resultsVC refreshResults];
+    [resultsVC refreshResults:self.resultsArray];
     [self checkIfCanGetRoute];
     return YES;
 }
@@ -93,11 +98,17 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:touchPos];
     NSLog(@"%@", indexPath);
     if (indexPath.row == destinationsArray.count - 1 && destinationsArray.count < 6) {
-        [destinationsArray addObject:@""];
+        [destinationsArray insertObject:@"" atIndex:indexPath.row];
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
         NSMutableArray *array = [NSMutableArray array];
         [array addObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]];
         [self.tableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+    } else { //Swap
+        
+        id temp = destinationsArray[indexPath.row];
+        destinationsArray[indexPath.row] = destinationsArray[indexPath.row+1];
+        destinationsArray[indexPath.row+1] = temp;
+        [self.tableView reloadData];
     }
 }
 
@@ -106,7 +117,11 @@
     CGPoint touchPos = [touch locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:touchPos];
     [destinationsArray removeObjectAtIndex:indexPath.row];
+    [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    indexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
     
 }
 
@@ -136,7 +151,6 @@
     if (!self.popover) {
         MPSearchResultsViewController *resultsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsVC"];
         resultsVC.delegate = self;
-        resultsVC.dataSource = self;
         resultsVC.loadingOnStart = YES;
         self.popover = [[WEPopoverController alloc] initWithContentViewController:resultsVC];
         self.popover.delegate = self;
@@ -152,7 +166,7 @@
 - (void)webServicesConnectionDidFail:(NSNotification *)notification {
     [self.resultsArray removeAllObjects];
     MPSearchResultsViewController *resultsVC = (MPSearchResultsViewController*) self.popover.contentViewController;
-    [resultsVC refreshResults];
+    [resultsVC refreshResults:self.resultsArray];
 }
 
 - (void)webServicesConnectionDidFinish:(NSNotification *)notification {
@@ -163,7 +177,7 @@
         {
             [self populateResults:resultDict];
             MPSearchResultsViewController *resultsVC = (MPSearchResultsViewController*) self.popover.contentViewController;
-            [resultsVC refreshResults];
+            [resultsVC refreshResults:self.resultsArray];
         }
             break;
             
@@ -213,14 +227,6 @@
 //        
 //        
 //    }
-}
-
-- (NSInteger) numberOfResults {
-    return self.resultsArray.count;
-}
-
-- (NSInteger) numberOfSections {
-    return 1;
 }
 
 - (void)resultSelected:(NSInteger)index {
