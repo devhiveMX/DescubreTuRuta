@@ -742,17 +742,17 @@ typedef enum {
 - (IBAction)mapButtonPressed:(UIButton*)button {
     isInRouteMode = !isInRouteMode;
     
-    if (isInRouteMode) {
-        [self.mapButton setImage:[UIImage imageNamed:@"btnMapa_barraSuperior"] forState:UIControlStateNormal];
-        [self.mapButton setImage:[UIImage imageNamed:@"btnMapa_barraSuperior_press"] forState:UIControlStateHighlighted];
-        [self.storeMapView addOverlay: self.routeLine];
-        if (self.segmentLine){
-            [self.storeMapView addOverlay: self.segmentLine];
-        }
-//        [self.storeMapView addAnnotations:self.directionsAnnotationsArray];
-        [self.directionsButton setHidden:NO];
-        [self setNavigationButtonsHidden:NO];
-    } else {
+//    if (isInRouteMode) {
+//        [self.mapButton setImage:[UIImage imageNamed:@"btnMapa_barraSuperior"] forState:UIControlStateNormal];
+//        [self.mapButton setImage:[UIImage imageNamed:@"btnMapa_barraSuperior_press"] forState:UIControlStateHighlighted];
+//        [self.storeMapView addOverlay: self.routeLine];
+//        if (self.segmentLine){
+//            [self.storeMapView addOverlay: self.segmentLine];
+//        }
+////        [self.storeMapView addAnnotations:self.directionsAnnotationsArray];
+//        [self.directionsButton setHidden:NO];
+//        [self setNavigationButtonsHidden:NO];
+//    } else {
         [self.mapButton setImage:[UIImage imageNamed:@"btnRuta_barraSuperior"] forState:UIControlStateNormal];
         [self.mapButton setImage:[UIImage imageNamed:@"btnRuta_barraSuperior_press"] forState:UIControlStateHighlighted];
         [self.storeMapView removeOverlay:self.routeLine];
@@ -762,7 +762,7 @@ typedef enum {
         [self.storeMapView removeAnnotations:self.directionsAnnotationsArray];
         [self.directionsAnnotationsArray removeAllObjects];
         [self.routeLineView removeFromSuperview];
-        [self.directionsButton setHidden:YES];
+//        [self.directionsButton setHidden:YES];
         [self.mapButton setHidden:YES];
         self.routeLineView = nil;
         [self.storeMapView removeAnnotations:routeLocationsArray];
@@ -772,8 +772,8 @@ typedef enum {
         }
         [self setNavigationButtonsHidden:YES];
         
-    }
-    [self updateLocationsInMapWithLocation:userLocation andSpan:self.storeMapView.region.span];
+//    }
+//    [self updateLocationsInMapWithLocation:userLocation andSpan:self.storeMapView.region.span];
     [self.storeMapView setNeedsDisplay];
 }
 
@@ -874,7 +874,7 @@ typedef enum {
         
         
         [self.mapButton setHidden:YES];
-        [self.directionsButton setHidden:YES];
+//        [self.directionsButton setHidden:YES];
         [(UIBarButtonItem*)[self.bottomBar.items objectAtIndex:6] customView].hidden = YES;
         [(UIBarButtonItem*)[self.bottomBar.items objectAtIndex:7] customView].hidden = YES;
         [button setImage:[UIImage imageNamed:@"btnMapa_barraInferior"] forState:UIControlStateNormal];

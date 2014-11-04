@@ -231,13 +231,17 @@
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="run-5Q-jbG"/>
                         <barButtonItem style="plain" id="Nae-9b-UyQ">
-                            <button key="customView" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vO2-fJ-nUp">
+                            <button key="customView" hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vO2-fJ-nUp">
                                 <rect key="frame" x="122" y="7" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnIndicaciones_barraInferior.png">
+                                <color key="backgroundColor" red="0.37002268150000001" green="0.63753780240000002" blue="0.3195249496" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="btnIndicaciones_barraInferior_press.png"/>
+                                <connections>
+                                    <action selector="mapButtonPressed:" destination="CrF-bq-Gzs" eventType="touchUpInside" id="gZh-L4-a0z"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" id="TrU-AG-quS">
@@ -501,7 +505,6 @@
         <image name="btnIndicacionesCaminar_Detalle_press.png" width="33" height="30"/>
         <image name="btnIndicacionesCarro_Detalle.png" width="33" height="30"/>
         <image name="btnIndicacionesCarro_Detalle_press.png" width="33" height="30"/>
-        <image name="btnIndicaciones_barraInferior.png" width="33" height="30"/>
         <image name="btnIndicaciones_barraInferior_press.png" width="33" height="30"/>
         <image name="btnMapa_barraSuperior.png" width="33" height="30"/>
         <image name="btnMapa_barraSuperior_press.png" width="33" height="30"/>
